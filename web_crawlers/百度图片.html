@@ -1,0 +1,973 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "11881925733721852038";
+            data.sid = '593ae1351e8aada6b79f73ccc63819e44cd8559d';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('0' - 0) {
+                data.ishttps = '0';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "11881925733721852038";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv='Content-Type' content="text/html; charset=utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<noscript>
+<meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+ <title>
+蓝色背景图_百度图片搜索</title> <link rel="shortcut icon" href="https://www.baidu.com/cache/icon/favicon.ico" type="image/x-icon"> <link rel="icon" sizes="any" href="https://www.baidu.com/cache/icon/favicon.svg">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间, 也用于vs埋点
+    window.pageStartTime = (new Date()).getTime();
+    window.shootBannerData = [];
+    window.isBigFu = '';
+   // window.scrollTo(0, 0);
+</script>
+
+<script>
+    // 时效性热点
+        </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_0e3b33e.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_e910a41.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_5bd6198.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/pagelets/base/newImgfilter/newImgFilter_d87f4bc.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_aac2743.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/models/filtermodel.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_c4ee0ab.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"searchresult:widget/pagelets/base/topRs/topRs.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/topRs/topRs_c41d15e.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/sourcehttps/sourcehttps.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/sourcehttps/sourcehttps_a8b93d5.js"},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}}});</script> 
+
+<div id="search" class="">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<div id="imgSearchBox">
+<div id="imgMainSearch">
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="0">
+<input name="hd" type="hidden" value="0">
+<input name="latest" type="hidden" value="0">
+<input name="copyright" type="hidden" value="0">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="ctd" type="hidden" value="">
+<input name="sid" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="蓝色背景图" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="image" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div class="undrag-text-tip" id="untip"> <p>IE9及以下版本浏览器不支持识图功能，<br/> 请升级浏览器或使用Chrome、QQ、搜狗浏览器进行识图</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+</div>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['wd','https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&ie=utf-8&wrsv_spt=10',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab" id="bdpcImgTab">
+<div id="bdpcImgTopTab">
+<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">资讯</a>
+<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>
+<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>
+<a href="http://www.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>
+<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>
+<b>图片</b>
+<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>
+<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+<a href="https://www.baidu.com/more/" onmousedown="setHeadUrl(this)" name="i_more">更多»</a>
+</div>
+</div>
+<script>
+	var imgMainSearch = document.getElementById('imgMainSearch');
+    var imgSearchBox = document.getElementById('imgSearchBox');
+	var bdpcImgTab = document.getElementById('bdpcImgTab');
+	var bdpcImgTopTab = document.getElementById('bdpcImgTopTab');
+	
+	var setSearchStyle = function (flag) {
+		var winWidth = window.innerWidth
+		|| (document.documentElement && document.documentElement.clientWidth)
+		|| (document.body && document.body.clientWidth);
+		if (imgMainSearch && imgSearchBox && bdpcImgTab && bdpcImgTopTab && winWidth > 1920) {
+			bdpcImgTab.className = 's_tab s_img_tab';
+		    bdpcImgTopTab.className = 's_imgtop_tab';
+		    imgMainSearch.className = 's_img_search';
+	        imgSearchBox.className = 's_img_search_out';
+		} else if (flag) {
+        	imgMainSearch.className = '';
+            imgSearchBox.className = '';
+            bdpcImgTab.className = 's_tab';
+	    	bdpcImgTopTab.className = '';
+        }
+	};
+
+	setSearchStyle();
+
+	window.onresize = function () {
+		setSearchStyle(1);
+    };
+</script>
+<div id="topInfoBar">
+<div id="newImgFilter">
+<div class="new-filter-container filter">
+<div id="typeFilter" class="typeFilter"></div>
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+</div>
+</div><div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 少女心韩系壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%B0%91%E5%A5%B3%E5%BF%83%E9%9F%A9%E7%B3%BB%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">少女心韩系壁纸</a><a class="pull-rs" title="查看 原宿背景图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%8E%9F%E5%AE%BF%E8%83%8C%E6%99%AF%E5%9B%BE&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">原宿背景图</a><a class="pull-rs" title="查看 车背景图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%BD%A6%E8%83%8C%E6%99%AF%E5%9B%BE&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">车背景图</a><a class="pull-rs" title="查看 纯色背景图无字"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%BA%AF%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE%E6%97%A0%E5%AD%97&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">纯色背景图无字</a><a class="pull-rs" title="查看 纯色背景图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%BA%AF%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">纯色背景图</a><a class="pull-rs" title="查看 背景图片淡雅"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E6%B7%A1%E9%9B%85&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">背景图片淡雅</a><a class="pull-rs" title="查看 背景图粉色系少女心"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%83%8C%E6%99%AF%E5%9B%BE%E7%B2%89%E8%89%B2%E7%B3%BB%E5%B0%91%E5%A5%B3%E5%BF%83&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">背景图粉色系少女心</a><a class="pull-rs" title="查看 背景图片风景"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E9%A3%8E%E6%99%AF&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">背景图片风景</a><a class="pull-rs" title="查看 ins云朵背景图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=ins%E4%BA%91%E6%9C%B5%E8%83%8C%E6%99%AF%E5%9B%BE&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">ins云朵背景图</a><a class="pull-rs" title="查看 大气背景图片"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%A4%A7%E6%B0%94%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">大气背景图片</a><a class="pull-rs" title="查看 简约纯色背景"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%AE%80%E7%BA%A6%E7%BA%AF%E8%89%B2%E8%83%8C%E6%99%AF&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">简约纯色背景</a><a class="pull-rs" title="查看 科学背景图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%A7%91%E5%AD%A6%E8%83%8C%E6%99%AF%E5%9B%BE&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">科学背景图</a><a class="pull-rs" title="查看 蓝色手机壁纸高清"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%93%9D%E8%89%B2%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E9%AB%98%E6%B8%85&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">蓝色手机壁纸高清</a><a class="pull-rs" title="查看 超仙背景图天空"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%B6%85%E4%BB%99%E8%83%8C%E6%99%AF%E5%9B%BE%E5%A4%A9%E7%A9%BA&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">超仙背景图天空</a><a class="pull-rs" title="查看 深蓝色背景"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%B7%B1%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF&hs=0&oriquery=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&ofr=%25E8%2593%259D%25E8%2589%25B2%25E8%2583%258C%25E6%2599%25AF%25E5%259B%25BE&sensitive=0">深蓝色背景</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = '898cb487cf4974eac924718fe6c476ea4a31a4b0';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+
+
+
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">蓝色背景图</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE&ie=utf-8&oe=utf-8&lm=-1&hd=0&latest=0&copyright=0&st=-1&z=&se=0&fr=&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约114,000张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text"></div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+ 
+<script>
+    (function () {
+        var pos = '';
+        if (pos == 1) {
+            pos = '-title';
+        } else if (pos == 3) {
+            pos = '-more';
+        } else {
+            pos = '';
+        }
+
+        document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+
+            var net = 0;
+            var isPreLoaded = 0;
+            var start = speed.get('start');
+
+            if(window.performance){
+                net = window.performance.timing.navigationStart;
+            }
+            net && speed.mark('net', start - net);
+            speed.mark('preloaded', isPreLoaded);
+            speed.mark('domc');
+            // 针对chrome细分数据
+            if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing;
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart);
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart);
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart);
+                if (net) {
+                    // tc跳板时间
+                    speed.mark('tct', timing.navigationStart - net);
+                    // 网络开始时间点
+                    speed.mark('nets', net);
+                }
+                speed.mark('connectStart', timing.connectStart);
+            }
+        }, false);
+
+        var addWindowEvent = window.addEventListener ?
+            function(type, fn) { window.addEventListener(type, fn, false); } :
+            function(type, fn) { window.attachEvent('on' + type, fn); };
+        addWindowEvent('load', function () {
+            var url = location.href;
+            url = url.replace(/&ctd=([^&]+)/, '');
+            if (url) {
+                window.history && window.history.replaceState && window.history.replaceState(null, "", url + '');
+            }
+
+            speed.mark('load');
+            LazySend();
+        });
+
+        function LazySend() {
+            if (speed.firstScCount >= 5) {
+                speed.mark('frm', '');
+                speed.send();
+            } else {
+                setTimeout(LazySend, 1000);
+            }
+        }
+    })();
+</script>
+<script>
+    (function () {
+        if (window._alaEnter && window._alaEnter !== true) {
+            window._alaEnter('end');
+            var oldOnerror = window.onerror;
+            window.onerror = function (msg, source, lineno, colno) {
+                try {
+                    oldOnerror && oldOnerror.apply(window, arguments);
+                    var str = 'error&source=' + source + '&msg=' + msg + '&ln=' + lineno + '&cn=' + colno;
+                    window._alaEnter(str);
+                } catch (e) {}
+            };
+        }
+    })();
+</script>
+<script>
+    </script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_ddf2bfa.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_0292914.js" ></script>
+<script type="text/javascript">!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){// ala进入问题调查
+window._alaEnter && window._alaEnter !== true && window._alaEnter('prerequire');
+require.async(['searchresult:widget/ui/app/app'], function (app) {
+    window._alaEnter && window._alaEnter !== true && window._alaEnter('postrequire');
+    require.async(['searchresult:widget/ui/action/base/base']);
+    app.setPageInfo({
+        // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+        queryPageType : '0',
+        tag_type: '',
+        tag: '',
+        subtag: '',
+        gsm: '1e',
+        listNum : '1022',
+        dispNum : '114597',
+        bdIsClustered : '1',
+        fr : '',
+        sme : '',
+        ie : 'utf-8',
+        oe : 'utf-8',
+        fInsertNum : "0",
+        queryWordEnc: '%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE',
+        queryWordGBKEnc: '%C0%B6%C9%AB%B1%B3%BE%B0%CD%BC',
+        queryWord : '蓝色背景图',
+        queryUrlWord : '%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE',
+        bdFmtDispNum : '114597',
+        bdSearchTime : '',
+        gbkword:'%C0%B6%C9%AB%B1%B3%BE%B0%CD%BC',
+        resTabs : [],
+        userid:'',
+        useSign:'',
+        userNumID:'', // 这个才是真正的 userid
+        encodeUserNumId:'',
+        spaceUrl:'',
+        hasUserName: ('' == '0'),
+        bdstoken : '',
+        thirdLogo :'0', // 第三方网站登录的logo，为空则不显示
+        se:'',
+        needIE:'1',
+        jit:'',
+        showHot:'',
+        hasResult: '1',
+        aspSID:'a4e514806e104886',
+        oriquery: '图片',
+        fm: 'rs1',
+        hs: '0',
+        adBigPicPos: -1,
+                checkHttps: 1,
+                strategyType: 'normal',
+                                        personalized:'0'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,"lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,"pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,"maxImgWidth": 400,"pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE",    "displayNum":114597,    "bdIsClustered" : "1",    "listNum":1022,    "bdFmtDispNum" : "114597",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=1304528123,3687230852&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=1304528123,3687230852&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img3.imgtn.bdimg.com\/it\/u=1304528123,3687230852&fm=214&gp=0.jpg","FromURL":"http:\/\/m.ppt123.net\/beijing\/2450_2.html","FromUrl":"http:\/\/m.ppt123.net\/beijing\/2450_2.html"},{"ObjURL":"http:\/\/www.51pptmoban.com\/d\/file\/2011\/12\/31\/202415f6bcd4a770a20c150a2a8d1427.jpg","ObjUrl":"http:\/\/www.51pptmoban.com\/d\/file\/2011\/12\/31\/202415f6bcd4a770a20c150a2a8d1427.jpg","FromURL":"http:\/\/www.qq545.com\/xinwen\/ppt\u9483\u6fca\u58ca\u9473\u5c7e\u6ad9\u9365\u5267\u5896\u6fb6\u0443\u53cf.html","FromUrl":"http:\/\/www.qq545.com\/xinwen\/ppt\u9483\u6fca\u58ca\u9473\u5c7e\u6ad9\u9365\u5267\u5896\u6fb6\u0443\u53cf.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=1304528123,3687230852&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=1304528123,3687230852&fm=26&gp=0.jpg",            "pageNum":0,            "objURL":"http://dl.ppt123.net/pptbj/201203/2012032616595708.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brrp8dn_z&e3BgjpAzdH3Fkjt3tg2AzdH3Fnmdc_d_z&e3Bip4s",            "fromURLHost":"www.ppt123.net","currentIndex":"",            "width":500,            "height":350,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "535346_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"5720",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2006-04-01 15:57",            "fromPageTitle":"10张ppt<strong>蓝色背景图<\/strong>片下载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1304528123,3687230852",            "os" : "1965989711,3141694581",            "simid" : "3439847418,335246638",            "source_type":"",            "personalized":"0",            "base64": 'data:image/jpeg;base64,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',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1199751599,1507756161&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1199751599,1507756161&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1199751599,1507756161&fm=214&gp=0.jpg","FromURL":"http:\/\/www.seotcs.com\/ppt-mb\/36361.html","FromUrl":"http:\/\/www.seotcs.com\/ppt-mb\/36361.html"},{"ObjURL":"http:\/\/ppt.yyfangchan.com\/d\/img\/wtisjhiae5e.jpg","ObjUrl":"http:\/\/ppt.yyfangchan.com\/d\/img\/wtisjhiae5e.jpg","FromURL":"http:\/\/ppt.yyfangchan.com\/pptbeijing\/danya\/92.html","FromUrl":"http:\/\/ppt.yyfangchan.com\/pptbeijing\/danya\/92.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1199751599,1507756161&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1199751599,1507756161&fm=26&gp=0.jpg",            "pageNum":1,            "objURL":"http://www.onegreen.cn/d/file/bigpic/2018-08-04/13/13484933689.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B5gj26jjg_z&e3BvgAzdH3Fkjt3tg2AzdH3F175ktwgxtg2AzdH3F0mnl_z&e3Bip4s",            "fromURLHost":"www.onegreen.cn","currentIndex":"",            "width":660,            "height":371,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534946_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7370",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2010-01-13 00:00",            "fromPageTitle":"橙色<strong>蓝色<\/strong>相间的多边形ppt背景图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1199751599,1507756161",            "os" : "215203817,2817469370",            "simid" : "3316571246,233335158",            "source_type":"",            "personalized":"0",            "base64": 'data:image/jpeg;base64,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',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1930401797,3677584096&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1930401797,3677584096&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1930401797,3677584096&fm=214&gp=0.jpg","FromURL":"http:\/\/www.16pic.com\/ppt\/pic_1679816.html","FromUrl":"http:\/\/www.16pic.com\/ppt\/pic_1679816.html"},{"ObjURL":"http:\/\/img.jf258.com\/i\/2a91960664x2831382582b27.jpg","ObjUrl":"http:\/\/img.jf258.com\/i\/2a91960664x2831382582b27.jpg","FromURL":"http:\/\/www.jf258.com\/tag\/\u95c6\u98ce\u6578\u9354\u3127\u657e\u93c1\u581f\u7049ppt\/","FromUrl":"http:\/\/www.jf258.com\/tag\/\u95c6\u98ce\u6578\u9354\u3127\u657e\u93c1\u581f\u7049ppt\/"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1930401797,3677584096&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1930401797,3677584096&fm=26&gp=0.jpg",            "pageNum":2,            "objURL":"http://img.ppt.cn/20170601/592fc43ca11d3.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brrp_z&e3BvgAzdH3FfrrpAzdH3F8ab0d_z&e3Bip4s",            "fromURLHost":"www.ppt.cn","currentIndex":"",            "width":1024,            "height":768,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534738_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"11110",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2013-05-10 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>光线ppt背景图片下载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1930401797,3677584096",            "os" : "2576834974,4012906455",            "simid" : "4170584285,529220227",            "source_type":"",            "personalized":"0",            "base64": 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAF3AfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxEUopBS1ucgtFFApiFFOFNFOFMQ4U4UwU4VSJZIKeKjFPFWiGSCnDpTBTxVozY8UopBThVoli0uKKWqEGKKKWgQUtJS0wHLUyGoRUq00Sy7CeladryR6VkxGtS0LMyooyWOAPetoHLVWh6N4H02aS9afKpEIz8zH29K3fEM+m2s8Akhe7kEYAy2xP05NYfh2dba5fT4SNscRMrf3nx/SpfEAkn1OGONGdjEuAoz2olB8+rPNjUV3pr3LNrq17M3kWUFtAD0WNAP1NWPOuFt/3zL5vmkFRGueg9qp22mS28Ra4uEtUYYYsfmYegFbunS6bCsWyMzBQ0hkl+uOn4UnKMdUrmkbSe5asVu4UQpGGduSdoAUfXFdZCGNuuWyxHX3rn7fVYp3JRvMbqeMKords7hbiDcpDY4yK87E8z1ase3l3JGTipXHIkhcF3x7VPVcAmcljjAyMGq73RkuzChIVV3FgOtc3K5Hoe0jTWvV2H3ZKbpAS2McDt71H55VVmP3GGeKaym5t2IfYykHIOc4qsskcs6QjIU7to9GHUVrGOmpxTqvmvHrt63LiXFrqMDRSbWB4KtWenh+OzleWEl0IyFPUGqlvAzXLxFdqSgkHJ7dhWnBeLDJHYuSWYHZ3PHatWpU7qm9OxgqkMRZV469H5nH3Gl3F3qG1oWHPLHoeasXd7FonlwRx54+Yium1C8Gl2TzSKXXP4jNcNd38l4ZmhlScydEf5WX8Oh/CuunUlVV2tDzsRQjSfKnqL4e1DztUnilUMsoOMnIHOe9cZ4ntFtNXnjQgruJHtW5o7ta6speMhlOCrDGBVTxuskl/HIUC7lwPet0tbmNOVqiRw04qlJ1q/c4HGMHvVB+tKR6UHoRpI8UqyIcMpyDVzVFWQw3iDCzrlh6MOtUTVzcH0Xaesc2R9CKI6pxHJWakUMUhFPpCKzNSIimkVKRTSKQyEimEVMRTStS0MhIphFTEUwipaGiEimmpSKjYVDLRGaYae1MNSykNNNJpTTTUMsKSlpKQwooopAFFFFAEApaQUtQaBS0UtMQUopKWgBaUU0U4UxMeKeKjFPFWiGSinioxTxVohkgp1MFPFWiGOFLTQaXNUSOopM0ZpiHUU3NLTAcDUqmokALAFto9T2q3G9rEeUeY+52j/GmlciTsSQKzsFRSxPYDNdT4e0i4a/iluNkEUYMhMjY6DPSueTVZ0G2AJAvpGuD+dX9Lnd3upJHZmFu/LHPpW8OVPQ5K6m4vod34UfTo9SmYzyXMzoxO0YXpk1qeItZntngS2VIfMjB3KPmx9a47wdJ/xPIkzjzAV/MYrovFSfurOcEMChXIPTB6flinJJu5584ctTlepnLPLcSgu7SSMcZJyTXXRwCCynMkyIqhIgRyeOv65rj9Ofyt9233Yvue7np/j+FaljKZNIugSSwZW/nUspuxvwajbQR+RbxeYM8u5++fp6V1WgXUlxCQSoAPIUYArz6xjBQTTsUh7er+wrrfD+pyTXwjxthI4HcAe/5VliaadN2OnBVeStG7Olvpxa27MACzcZrCtpZGup0eQkqMdeBWnrYJst2QMHrWBpzMbiYseWRmz61y4eC9k5HZjqkvrKj0Ro6fdiYNAnykHOfWlDA3QgCCOUNvV+xI6/pWDHdtFciQnPY/SultYBPJHc/3f1rSrBU3fuc1CcqjUV/SJltzCxuMHf8AxLnI/CsySMnXoZ9jsSQQvIC/j6+1HiLV5NPmSKFcq4y2ehHoKpg28wtLuIOIz8rYAO05796inGVuZ9TbEVIxlyR6P8R3iGa6F0/kRSSJnDIVyjA9Qf8AGuP1LS2Mf2iyDGMn5omPzRn+orU8QTTNqtwiXEThiSqs207h0xnH04PeucW5vLWaN445gqk5wdwOfcV1UotRRwVp80213ZFDe3kU8asY5VBxtd1P5HORWh4qtftVjDJErRyjopO4fTI6fjWfdPALhmhUqzsMOybQT6Edj+hpfE4kOmqXUhhjIx04rqjHS5hf95HocVeRzQuUmQq3fIqg5q6Z7rbsQyFfTGRUZheX79u6H+8qnH4j/Csmr7HrQdtyiamRsWsi+rD+tK9rNGTmNseoGRUYOI9vqamzW5ro1oMxRinYpMVJQwimkVIRSEUhkZFNIqQimkUhkRFRkVMRTCKhlIgYVEwqdhUTCoZaIWqM1KwqMis2WiM02nkU0ipKG0UtFIYlFGKKQBRRRQBCKUUlKKhGjFpaKWqEJijFOxSUCClpKWgBwp4qMU8VSEyQU8GoxTgapMholBpwNRg0oNWmQ0SZpc0wGlzVpktD80uaZmjNMkfS5puaWmA4U9TUeacKBFhDWtpsm1br3gI/UVjIav2b48wesZrSD1MaqvE6Dw7c/Z9YtZf7rg16FqVg17ps8CEAwS79x6BD1P6CvL9NVzKsu4IiHJc9BXrthcpqFrAsKk288WyVsckgYJP04NbX0PLxOk0ziJ50fZBDkQx8L6se7H61uaIqQSPDcYLzJhYj69Ru9PpWdf266NeyQL884P8ArCPlX/d9frVaCR0mWXJ3Zzmk9SGrqyNWSeWS5YynkHAA4Cj0A9K6fRmWCGeVX3FYV7YwSen6CsC7QSrHeRjiQfPjs3etnSBvhvIicExxkfhzUyd42CD6nayYu9K2fxGPIrn9NjImkyOiMvP0rdhA+zIqnOFxn8KztPjee5kzksXwx/A/41xQfLGS6Hp1E6k4N72sZdjYm6uTuH7tTzXQy30Onwpb5wxG3/dpJ3i0q0eQAZHCj1auSWR77UAjklpXXHPfI/pmtP42r2RlrQVo/EzX8VW2+1jkA+aNMkDuO/61jaNeSRLblCMedtYHoQR/9athdUTUmuoWI3JISmehGcYrHNmbGG7deI0y6Z7ZBGPzNXBWhyyObETvU5olHxFbC5ka7sm3bj5nl/xKepx6j/61cVduUlYqSoPzDB6Z5rr7vjTAgANyH2rLHJnbjOOnqa5q5mt9QhRrjENxyvmqPlbv8w/HrXTGJFOT3ZnQX8y3ShppCjHDAMent71veJrq6g0xY/tEh5UBgx5G0c1iW+nSjUYImjJLONrg5Vh7Vp+LJA+nxRg8q5Zf9zOP5/zrVXSFNRdWFjjJLmdvvTSH6saruxbqSfqalcVERWDPVikgVyFK9uv0NNySck80uKAKktBikp2KTFAxpFJTjTTSYxppppxppqWUhpqNqeaYahlIiao2FTEVGwqGUiBhUZFTsKjK1DRSISKaRUpFNIqbDuR4pMU/FJilYdxmKKdikxSGJiijFFAyAU4U0U4VBoxwpaaKdTJDFFLmkpgFAopRSGKKcKaKcKBDhTgaYKWqTJaHg04GmA0oNWmQ0SZpQaYDSiqTJY8UtNFOqiWKDThTRSiqJHCnCminCmIkXrV60Kq5Lc5UjA+lUFOKsQHEgq46MiaujQjnZ8An5R0UdBXovhbWEuNOl0uJPKKjzE+bJcj7wP4dvavMYmwa2dKvpLG8iuImKujAg1tF3OLEUuaJ6Tqln/a9gJIx/pFuvTuyf/W/lXNRxsjBXGDXW2d6s0MV7asqpIeQB9xu4pupaSl5CbuzjAkXmVFP6j2/lTenocEG/hZR0mT5GhmUmByAWx909jW/p0DW2qGI8h4wAex4BH8q5uAOvyEkDOce9dZpUgl+zpIcMp+RvQg9P1rCpdG9GKcjprRcEr2BGKnt4EtDK/TJ3GpLeHExOOMVXvZd10IOxGTXnN8zsj3oUlTgpPdPQwfEjt5scZPGN34n/wCtXMF2jmUoxVugI7Gum8RSxvcsip8y8bs1ysx2yA+hzXoUV+7R5uIj+8diity8E4kVmGDyQa6G1vkn8OXcV43V1iD+vf8ApXLT8HtWjfBovC9kMYMsjOx+mAP5Vct0Yez6/wBdh0OnSLDIifOhG5SPUVyt9AY5bqPGNsm4D2yR/UV0OiatNaXiocFHIBB5HWtPUtJt9W1F0tuJJgcA9D3rXmMEnBnPeFkniM1wDujUbVRhkFj0rF8U3Am1R0jwEjGwBeld5fWX/CPaWRj/AFQwD/ekPf8ACvM7nMkjO3UnJq001dDoxbqubMx15NREVakXmoStZs9KLIcUoFP280AVJY3FIRUmKaRSAjIphqUio2FSykRmmGpCKYRUstDDTTTyKQioZSIiKaRUpFNK0hkBWmEVYK0wrU2C5XIphFTlaYRSsO5CRTSKlIppFKw7keKTFPIppFTYdxuKKWilYdyoKcDTM0uayN7D6dmowadmncVh2aXNMzS5oFYdSimg04UAKKcKQUopgLS0UU0IWlFJSiqRDHCnCmingVojNiinUgFPAq0QxAKcBSgUoFMQAU4CgCnAVQgAqVOCKaBT1FNEsmQ1dgaqKVZjbmtImckdd4c1o6fMY5fntpOHT+o969EtMgJPbybo25SQfy+tePW79K7LQNeaxkWMoGt2ADxk5BPr7GtXtoefVpK90d3JpMOor5sQWK47gcK/+BptvavayiORWVlIbmtDS3inRZYH3wt+an0NbXkRTkCRcsOjd64KlTlduh10KCnrsy9BxCpPXFZlyP8AiaRt61qhdqKo7VnXaAXMTE4xXHTfvM9qtF8sV2Oa1dC15M2ONx5rnrtMk4AFdTeoWlk5OC2T71iXNv14r06b91Hl1Ye82c/LEZZgFUAnAwK0NeTbLDYD/l3t0H/Asbj/ADNXbGzCP9pcdCFQerHpVfUt0mr3MiR7nSY7W9ccAe/Sk5XkZONkYtnbq86DfsYkgcZ7V6JptgLXTbe5lj2XIU5Lfwjnk1T0jRY4roahOHZiBtXaF5PoPyq5qmoI8FzZwsTIFO9vw6VE5ub5YkKmopzl8jjNc8QrfXJt3XdbJwuev1rltS0xQnn253Rn9KkuUw7DvmmWl4YJNj8xtwQa7YJJWOflafMjn5UwarsvNburWQhk8yPmNxkGsdlpSR105XVyDbSbalK0mKg1I8UhFS4ppFIZCRUbCpyKYwqWUiAimEVMRTStQ0UiHFJtqXbRtpWHch20hWpiKaRSsFyArTCtTkUwiiwXK5FRkVYYVGRUtDuQEUwipyKjIqSiIimkVKRTCKloaI8UU7FFSVczs0uaZRmuc6iTNLmo80uadwsSZpQaYDThQKw8GnCmCnimIeKcKaKeKZItFLRVITClAoxTgKtEMAKkApAKkUVokZsAKeBQBTwtaJGbYgFOApwWnBaqxI0LTgKcFpwWnYVxoWngU4LTwtOwCKKmSmhamhISRWKBwCCVbOD7HFUiWWIWwRWvaSYIrGj61o2z4IrRMwnG53Wg6rPYSq8T8fxKehr0zStQg1CNWjwr/wASZ/lXjVhLjFdnoFyUu4iCetc2IpqSv1Fh6jpzt0PS6pX9uZYwyjlalS4BcK3BPSrFeUm4O59E+WpE5meLJPFUHtDLIEA5NdLe2gOZFH1FZzIIoWf+JuBXZCrdaHHKlrqZPlq2pWkCf6pJF/Hnk1Jp2imeeW5eVvI80sVGRu54NXNNsWlvklI+VDkmrmq30emWmEA34wi+nvRKbvyx3M3TVuaRneItUWxtCkLL9o4TAPKD/GuX0aWSe7m8xizujZJPJ4NQXEzTTu0pLb+uTT9BO3UcY6jFdVOPJGyPPrPmdzmtRTZcyD3rJlHNb2sJi+kHvWLKtdFzOKLMf+l6ZJG3LR/MP61gOm1iPSug0kZmdOzKR+lY92m2dx705O6uOmrSaKRFMNSsKiNZnQhKQ0E00mlcYhphpxNNJpDGkUwinmkNIoZikxTzSGkAwimkU8000ARkUxhUhphqRkRFRsKmNMNJjISKjIqYiozUspERFMIqQ0w1DKRGaKU0VIzIzS0lArlO0dSim0ooEOFPFMFPFUIeKetMFSCqRLHgU8U0U8VSRLFFLigU4CqSIbEAp4FAFPAq0iGwUVIooUVIorRIzbBVqQLSqtPC1okZtiBacFp4WnBaqwhgWnhaeFp4WnYQwLTwlSBaeFp2ERhacFqQLS7aABBVuFjnJPNVgKnj4NUmS0bdlLgiuw0GTddxjcq98scCuFtXwRXTaPPi4jye9KSujFqzuenG5YXsagjkjrXQKcgVyH21YbqNmGQVX+VdTFOvkhycAgGvLrxtY9jC1FqmyYjIxWZeW5M6oo4PStQHIzTSoJDHqKwjLldzrnHmRWAisrcFjhR1Pqa4zXnd9QmDnOGwPp2rc1q73t5Sn5V6/WsPVD9pt47ofeA2SfUdD+NddGLTu+pw15JrlXQ52fvVvw+hfUs+nNU5uTWx4ei2R3Fweioea7Oh58kcxq43X8p96yJY62bweZcyN6mqTxVbeolEbo8RN3nHQE/pWNfL/pD/AFrrdIttsFzMeixn9eP61zN2m6Zz703LQUV7zMhxUDdauypiqjrg1LZskQE00mlaozSuOwpNNJpCaaTQA7NJmmk0maQx2aTNNJppai4DyaYTSE00mlcYpNMJpC1NLUrjsBNMJpSaYWqWxpCGozTiajJqWyrDTTDTiajY1DZSQmaKbmikOxlClFJS1ynYLSikpwpiFFOFIKcKaJY5akWoxTwapEslFPFRA08GrRLJBThTAaeKpEMeKkUUwVKtaIzY9RUqimKKmQVqjNjlFSAUiipFFWiGAWnhaUCnAVRIAU8LQBTwKAALUgFAFPAoAQCjFOoNADaepphpQaYi7C+CK3NNm2zJz3rnI26VqWcuJF+tMymj0W4uOIGz/AtdjFL5mjI4/uCvOpZ82du2f4P6mu20SUXOiKhbbwRn0rlrx0TNMNU1sa2mX/nRiN/vDgH1rQmbbC7dwK43TZz/AGisYckBu3Q12HmK644z6VxVYcsrnqYetzwaZxl5KS7Enkms37UYWbjcjDDoehFa2u2TW0plQZifofSudlbNdkLNXOKcmnYWW0Sds2rhs/8ALNjhh/jW21rLp/h8r5TiSTr8tZOmWhurxBjgHmreuXfmzCCNj5aDAANXrsZ2TOeeBgTuXB96iaDPGK0BET2q/Yaal5PBHHuMhPzgjgCm5WKUbjJLT7B4cYsCHlPf0FcXPDkk4r0TxYyqsNmnSNcVxc8PtSU7q4uSzOcmi61RlSt6eDrxWbND1qrjMh0qFlrQkiqs8dMCoRTDVhkqJloERGmmpCtMIoGNJppNKRTTSGITTSaDTTUjEJppNBNMJpMpAWppakJqMmobKSHFqYWppamE1LZSQpamE0E00mpuVYCaKbmikFjPpaKUVznSKKWgUtUSxRSikpaYhwpwNMpQaYiQGng1EDTgaaEyYGnqahBqRTVohk6mplqupqdDWsTJk61MlQJU6VsjJkyipQKjWpBVohjwKeBTRTxVCFAp4pAKcKAFFPFMFLSAdmkJpM00mgBSaQHmmk0meaALCNV+3fDCs2LlgKuxgq2D2q0ZSOw83dpsJ9Miuw8Kz+Zpbx56Nj8wa4WBt2lL7N/Sup8GzfLOnoA361FVXic9N2kXdGbGrkHsatXmpyRavvRsbTiqtovka/MvoxrMupS185z3rJxTdzeM2lY7iG7t9XtXjOMkYZfQ+orjdRs3s7tomHGeD61DBfS2l0JI2IINbl3cw6laLckAOg+YVEYcj02N3Pm3K1vIthYkj/WyDj2FZ3LuWPU0jytK5LGpY1rRlRRLBvhdZFA9siup0GxFvE15JgMwyCayNLsXvbhU/gXk1ua1crbWi2kWBkc/Suao7vkXU6YKy5n0/M5XV5Xur2V3IPPGKxJ4evFbUiZzVOaLrWq0M2c/PB14rMng68V0k0PtWdNBnPFWiDnpYPaqckPtW9LB7VSlh9qpEsxXiqFo61ZIfaqzxe1XYm5mslRslX2jqFo6VguUmWoytW2SomSk0O5WIqMirDLUTLUtFJkJFRtUzComFQ0UiJqjNSsKiYVDLRGTTSaeRTCKhloaaaacaSpGNopcUUhlCnCminCsTcWnUgpaZItGKWjFMQUooxS4pgFOFJinAU0JjhUi0wCnqKtEMlWp0qBamWtImcidKnSq6VOlbRMmWFqVahWpkrRGbJVqQCmKKmVaoQAU4CnKtPCUxEeKMVLs9qQpSGQmmmpitRlaAIjQOtOIoAoEPj4NaKjcqv69aoItaNqMgr+VUiJm9ZHOmsP9of1roPCL7dS8s/xqR+lc9YD/AEWRfpWxoUnkanbyejipnqjBLU6u5i8vXEk7SKD+lc7c8XTfWu01K3w9tMB9x8H6VyN5GVun+tYwleJu4WZTPLVPBOyHaD8p4IqIoaeqVZaRMo+artvGZHVR1JxVaNcYrrvDliVRp5Y12n7pYc1lUmoxub048zsjSsLSLS7MvIwzjLNXO3k/2q7aRiSuePpV7VtT86Qwx48sHn3rMdg7FtoGewrGnB/FLdm1SSfux2RDIoydvSq8keauEVGyVsZmXLFx0qjLB14rakjzVWWL2polmDNB7VRlg9q3poevFUZofatEQzBlh9qqSRVtSxdeKpyRVoiGZLxe1V3jrUeOqzx07E3M146hZK0HSq7pSaHcoslQstXXWoHWoaKTKbLUTLVtlqBlqGi0ysy1Ewqyy1Ey1m0WmVyKaVqYimEVDRaZCRSEVKRTSKmw7kWKKfiilYdzNFOFNFOFc6OljhTgKQCnAVSIYClApwFOC1VhXG7aULUgWnBadhXIwtOC1IEpwSqSJuRhaeFp4SnBapIlsQCpVFIFqRVq0jNsetTJUaip0FaozZKgqdBUaLVlErREMei1OiUkaVajjqyRqx1KIqnSL2qdYfamBS8r2pDF7Vo+T7U0w+1IDMaOomStJoaheL2osBnlKQJVsxe1II+adhEaJV62XDCokjq7DH0oEzXtFxE+OhA/nWvpEYF0jtC0qowZgvpWbZr+4P4Vp2QKk4dkyMcd6znsTGOp6TKqXdiSmcFAwz2Irj9ThxducdTXVeG2E2mgF9xRiDWbrtl5d0D2YcVx0pcsnA7pU24qZzPle1OSLLAYq6YcGpobbClyOBXQmZ8olhas9yjKQMN39q2L/UnSFbaLKj1K4OKzBOEjVEj+YdWyc9f0qPJY5Ykn3qXHmd2UnZWQ4cnmngU1RUiimAAUhWpAKXFSBWZKryR1fK1BIlNAZcsdUJo62JUqjMnWtIkMxpo+tUZY615kqjKlaoyZlyJVV0rSkWqki1ZJnulV3WrzrVaRaGBRdarutXXFVXFQykVXFQMKtOKgYVDRSKzCo2FTsKiYVm0WmQkUwipTTCKhotMiIphFSmozUMpDCKKU9aKRRlingUgFPUVzI6WKBTwKAKkVatIzbALTwtOVakVatIhsaFp4SnqtSBauxLZGEpQlShadsp2Fci20oSptlKEqrEtkQWpFWnhKkVKpIlsaqVYRKVI6sxxVokQ2JGlWo46WOL2q3FF04q0iGEUVXIovalii9quRRVdiRscNWFh9qmjiqysVAFTyfamtD7VoeVTWioAynhqu8XtWu8XtVd4vamIymipnlc9K0Wi9qb5PNOwXKyRe1XIYqVIfar1vCDSYFm1TEX1NadpEGZQTgHvUEcBRFGPetCGLABrKRUUdD4ef7NeON2UIwcVv6raC6tSQAXHQ1ytmjJ84JGK6qxvFu4CrAbh29a4a0WpKaO+jJOLgzmo7R3l2Y6HBxU14qxIIl7da2Lnbb7nCgE9KxJCZZCT3rWEnLUxkrMrrEAhJFM281ZkHYVGFrQkQLTwKSnCkMUCnYpBS0hjSKicVMTULmhCKkoqjMKvy1SlrSJDM6ZetUJVrSm71QlFaxMmUJBVSQVekFU5BWiJKUgqtIKuSCqsgoApSCqslW5KqydaljRWeq7VYeq7VDLRE1RNUjVE1ZspDDTDTzUZqGWhhqM09qjaoZaGk80U00VBZSAqRRTVqRRWKNmPUVIopqipVFaIzY5RUqimqKlUVaRDFAqQLSKKkUVSJALTwtKoqQLVEjAtOCVKqVKsdVYTIVjqVYqnSKrCQ+1UkQ2QJF7VajhqZIfarMcPtWiRDZHHD7Vbji9qfHD7Vajiq0iGxIoquRx0kcdWY1qrCuPjjqwqUiCp1FIY3ZTTHVgLQVoApPHVd4q0GXNRNHTQjOaL2poi56VeMdIIvamIrpF7Vcgi5FKkXTir1tDznHSpY0WoEDEI1acNk2BgZHWqEEZLjA5rsNMhX7MA4G41zVp8qubwjd2M6ULHCqL171Y09WhPmk4Wo7i2aO5IbpmpJZMRrGvasnqrLqaotXrrcJwelZYTaST2qfeQAacwDR57miK5VYG76lFhk00ipGXBqM9a0JEpaQ03NFhXJM0haoy1IWosFx5aonakLVEzUWC4yQ1UlNTu1VZDVpEtlSWqUverslU5BWiM2UpBVSQVdkFVJBWiJKUgqpJV2QVTlFAFKSqknerktUpKljRWeq71PJVZzWbLRGxqJqexqMmoZaGmozTzTDUMpDGqNqkao2rNmiIjRSmioLKi1KtRLUimskasmWpVqFTUgNaIzaJlqVagU1Kpq0S0TrUq1ClTIKtEMmUVMq0xBVqNKpEMEjqwkWafHHVuKH2q0iGyOOH2qykHtU8cPtVqOH2q0iGyvHB7VZSH2qwkOO1TLFitEiWyBYqmRKkCU8LVEgi1MgqMVIppiLCVMpqsrVKrUgLANL1qNTUgNACFaYVqWlC5oAr+XmlEdWNlKEoAjSLJq8kexAO5qONMHNXIkMjipkUi/plqCfMf7orRiuiLxSPu5xVbeIoRGv4063PluHwCR61yTV7tnRA6C6gWeHcB82M1hsp3HPWugtX3wKTVC5tQJ25wDyK5KU+VuLOypDmSmupm47UsgKoKl2YfHpSXC4Irpvqc7RTY5qI1MwqFhzWiIGGmE040w1RAhNMLUGmE07AIzVEzU5jUTGnYVxjmq7mpWNQtVJEtkD1VkFWnqBxVpENlORaqSLV91qrItUhGdKtU5RWjKtUZhQwM6UdapS1flHWqMoqGWilJVZ6tSVVes2WiFqjNPaozUMpDTTTTjTTUMtDDTCKlIphFQykQminkc0VJZnA1IDUQqQGsUbslU1IpqFTUimqRDJ1NSqagU1MlaIhlhKsxiq8Yq5EK0RmyxEtXIkqCJa0IU6VqkZNk0UdXooqjhSr8KdK0SM2x0UVW0ioiSrSJVpENjFip2ypgtKVqkhEG2mmpWqJjTEJmlDVGTSbqYFhWqZWqmrVKjUhF1WqVTVVGqdDQBYUZqUCok6VOopAKq5p4SnKtX9PsXu5gqrkDrUSkoq7LSuQ29q8p4HFWkVUfA7Vqah5NhAIIh8xHJrJTPJrKM+dX6F8tnZk6ks2av2cIlk2s2OM1RjFXYh0rOptobU99TdtSApUc44zSXqbotw6rTLD/VkVakXdGw9RXnP3ZnoxXNTMULlxS3SdKlVf3gFOuV+bHrXRze8jkaMlxUDjmrcq4aq7CuhMyaK7CoyKnYVGRVpkNEDCo2FTkVGwqkJkDCoWqwwqFhVIhkDVE1TMKiarSIZAwqFlqwRUTCrSJuVnWqsi1dcVWkFMRnyrVCZa05RVCYUDRlzDrVCUVpTCs+YdahlooSCqj1clFVJBWTNEV2qM1I1Rms2WhppKU0lSUIRTSKfTTUlIYRRTiKKVhmQKeKYKeK5kdLHipFpiipVFWiGyRRVhBUKCrMYrWKM2yeMVdiWq0Qq7EtbRRlJlqFa0YVqnCKvwjpW0UYtl2Fa0IlqnCKvRVokZtluMVZUVXjqyvSmSOxTWp2aYxpgROagY1K5qu5oAazU3dTWNMzTEThqlRqqqamRqYFxGqzGapRmrcZpMC5HVpKqRmrUdSxotwRNLIqL1JxXXxRxaRYlj9/HX1rL0CzHNzIOB0o1e5lurjZGGaNfRa4ar9pPk6Lc6qfuR5+vT/MoTztcztIxySaWNc1FtKnDAg+9W7QbpQPWt3ZLQzQ+Neav26b3CjqaSe0MGCOQaltVUk7jjiuac043RvCOupp2ibFZSOQeTVgciq9qU2YXk9zUyH5mHvXBLdnpU7JJFErtuSPei8G3aamn2icZB3E0y+X9yDWsXqjnlGyZn3C5UMKpMKvBg0ZU1Sfhq6odjmZCwqMipWqImtEQyMio2FSmomq0QyFxULVM5qBzWiM2QtULdalc1AxrRIhjWqJqczVEzVSRIx6rSVM7VXkaqsIqy1Ql71dlNUZjzSZSKE3es+atCas+as2WihLVSSrktU5KykaIrNURqV6hY1kzRDTRmmk0mai5dh+aKbmjNAWA0UUUDMoU8CmgU8CudI2bHgVKopiipUFWkQ2SoKsxioUFWoxW0UZyZPGKvRCqsQq7EK3ijFstxCr8IqnEKvRCtUjNl2GrsZqnEKuR1ZDLaVYXpVeMVYWgQ/NRuaeajfpQBA5quxqZ6gemBExpmac1MpiHg1MhqAVKppgWozVuI1Sjq3EaTEXojWhZQtcXCRjuazIz0rqfDluBvuXHCjisakuWLZSNTULkafYLBGcMRjiueDknJJzT9SvDc3jNn5RwKrq1ZU6fLHXc0crsvQ3EgIUnev91uRWwlqkVt9pQEeqn+H/AOtWdpNr9om3N91etaD3oF8sY/1X3GHtWVR62ibQd9GallKl3b7WwSKY1qYXOPunpVCFnsbtl7KcfUVuoyTxBhyDXHO8HdbM7KcVNcr3RDZ/db61Ijf6Q49qWKPygRUMbZujWe7bNldKKYXWBIhIpLvJtqfecIpx3qO5ybPPtTj0JqaORkSOQeKrO3NSSNzVZ2ruijikwY81GWpGaoi9aJGbY5mqJmpGeoXerSJbB2qu7UryVWeStEjNsHfmoWemvJUDSVokQx7PUTPUbSVE0lUiR7vVd3pGkqB3pgNkaqUzc1NI9VJGpMpFaY1QmNW5T1qlKazkWinL3qnJVuXvVSSsZGqKz1Axqd6rtWMjVDCabmlNMJrNstIdmlzUeaN1Fx2Jc0VHmii4WKYFSAUgFPArNIpscoqZBUaip0HNaJGbZKgq1GKgjFXIlraKM2yxEtXYlqtEtXolraKMmWIlq9EtV4kq9ElaozZPEtXI1qCJauRrTETIKmApiCpgKQDSKjapiKicUAVZKgerMlV2FUgIGFNxUhFJiqRI0CpFFIFqRV5pgTJVqOq6CrMYpCLUQywA7117uLDQ1UcM4rmNOj8y7jX3ra16b94kIPCDFc9Rc0lEDMDZOT3qVDkgetVga0dNh865jH+1VPRXLR0EYGn6Vu/jYVlRuWkznBJ61e1yUBY4VP3eorMhILDJwO9ctNXjzPqbLexu3JDtFLnJeNST69v6Vc06Uh9nUGqFwymO1K9PL4+mTWjpkR/1h/CuaekNTvhrPQ0j0NUVBjuBn1q/UUse7DDqK5Yu2h0zjfVEd7/qPxqP71kR7VPcKXt2x6ZqsmDZN9KuPwmVT4vkYMxwSKqO1WJz1qjI3WvRicEwd8ZqEyUx3qGRwAMNkkc8dDWqRk2SNJUDyVG0lQPLVpENj3kqs8lMklqtJLVpEskeXmoHlqFpaheWqQiZpKiaSoGlqJpKoRO0lQPJUbSVC0lAD3eq0jUO9QO9SykRyNVSQ1M7VWkNZstFaSqslWpKrPWTNEVXFQNVlxUDisZI0RXaozUzComFZs0Q0mkzQaaaksdmimUUrgAFPAoAqRRTSIbFUVOgpiip0WtEiGyWNauRL0qCNauxLW0UZtliJavwpVaFavwrW0TJliJKuxrxUES1cjWtEQyeJatxrUEYq0lAiVRUgFMWnZpMYGoXqUmoWNCAhkqAip3qI1SAiIpAtSYpQtUSMC1Kqc04JUqJQAiLVhFpESrCLSbEbHh62Mt6rnAUHrTdWcvfv9aueGVUTyMwJIxjjjNVdR3SXkjtjOefeue96j9B2KQFb3h+PM6se2axVXvXReH1xk+xpVnaDLitStqMm/UnBPB+Wq8YweeCKkvV/wBOlPvxSqoZgcnLDI+tStEi4m15Jle2jHIEQyfTOTW3GFgi9ABUNvbLAAx5Yqq/kKp6hejd5KHp1Nec71HZbHpr92rvc04JhMpIqWsWyuTG/wDs962QQQD2NZVIcrNqU+ZajJ/9S30qpEP9FcVdddyEeoqoiFYGBHPSnF6E1Vqc3ccM31rOmPWtS6X52z61mTAAjJ4zzjqK9KDPOmijI9VnkqScgMdpJGeM1SkfFdCOdivLVd5aZJJiqsktXYkkklqrJLzUckvvVZ5KYiZpahaWoWkqFpKYE7SVE0tQtJ71E0lFx2J2kqJpKhaSoy9K4WJWkqFnpheo2elcdhWaoHNOZqiY1DKRG9QPUzGoXqGWiBhULCp2qJhWbRaZXYVEwqwwqJhWTRomQEUwipmFRkVDRaZFRTsUVNirkyrUirShakVa0SMmxVWp0WmotWEWtEiGySNauxLVeNauRCtYmbLUK9KvxCqcVXYq1Rmy5EKtR1UjNWUarJZcjNWFaqavipRJQIthqXfVUSe9HmUhlgvUTNUZkphegBzGm0wtmnA1SEOAqRVpq1MgpiFVKmRKEWp1WlcBFTmp1ShUqdFpXGauhyyLII1XKq28mna1aNDeliOG5BFU7Z2hlDKcetdJex/2nYiaIncByua5ZvkqKXRmijdHLqldBoQ2nHrkfyrLEIC5zznGK1NJ+SUD/a/z/KlWd4suEdStqEey6fIyW6Vo6LpxfE0owoOVHrVqbTRcX3mP/q1A/Gr7SpbxMeBtXO0dhXLOteKjHc6aVL3ry2RV1W/W2iKKw8w8fQVzply5O7PvTL95DdsZTlutVWkxtPqK3pUlGJlVquUm2ascvzDBzXQ/ahCIlb7pUVyunuj3KLIWwTwBW5qLrkqv8BA/Ssa0U5JG9GbUWzaVgygg5BpHUMpHrVXT5N1soPbirlcbVnY7otTic3f2skTksMg9DWJcr1ruJEV1KOuVrndV0xogZIvmj/lXZRq30ZwVqbWqOTnHWs2YkGti4XG7j/61ZFwMZrvgzz5MoSvVWZsKp9RU0561UuGxDEfqP1rUVyF5Kgd6a7EDJ4qu8lAx7yVC0lRs9RM9FxkjSVGZKiZ/eoy9TcdiUvTC9Ql6aXpXHYlL00tURekLUrgPLVGTSFqYWqWxoCajY0pNMJqWUhrVG1OJphNSykMYVEwqU0w1DKRCwqNhU5FRsKhotMgIoqQiiosVcsqKlVaRRUqitEZscq1OgpiipVrREMnQVajqqhqwjVaJZcjNW42rPR8VYSStEyGaKPUyyVnLLUqy1VybGistSCb3rNE1OE/vTuKxo+d70ed71n+fS+dQMv8Am0eZVES+9PEnvTEWw9So1Ulep43piLqGrCVUjNWozQItIKnQVBGasKaQyZRUyioUqZahsaJlFbWl3htmAJJjPBBrGQ1dtsNuiP8AH0P+12/w/GsaiTVmbQ30Nu70sT4ntsENyRUdhZyC7KEcKQScUzTr+SFxGwLA8Y9K6MKuN2ACetcNSc4LlZ20qcamqIrqVbe3Lnt0rHUmSC8mkcNkAHHbmtW8jaW3cHqPu4rMiMi6XIzZLcnp2GAP5VNK3L8yqus/kc7deY6rIckHuarypIkUTupAYHbnuM9a1pYBNbu6HKyDcF/usOo/Kq2qqA4gHW3jRf05/UivQjPVI4JQ0bI9Lb/TEc9I/nb6CtueQzQCU/xgMf1rCCm2tAn/AC0mwzeqqOg/Hr+Vba4/s2Mnn5CMj6//AF6xq7pmtK9rGppcgktxj2zx3q3dSNFbll6iqWjwvFG4YcZ4q1eHdbyr6Yrhkl7Q7oNqnqJDcpchh0dTgilbuCMg9Qa55LryLstnjNaI1FY5hFOfkblHq3Taehi6qktTJ1vR8I1xbjK9WX0rmPsBlVppn8m3U8uR19gO5r0ogKMtzkcD1Fct4g0oySi5aXZaKOf9j2A9a6aNZv3WcVenb3kcJcwCW4kW2VzGDwX7D1NZ92UitI9pDsHYbu3bpWvqU+9PLhTy4Oyg8n3Y9zWLcqf7Pz6SkfpXdE5EzJlckkk81VZ6llNVJGqmbIGeoWems9RM9S2UOZ6jL0wtTC1TcZIXpN1RbqTdSuBLupN1R7qM0rjH5ppNNJppNK40KTTCaCajJqWyhSaaTSE00mpuMUmmmjNJmkMaaYRT6Q0mMjxRTsUVNh3LK1MtV1NSq1NMGicGpAagDU4PVJk2LStUivVQPTxJVpktF5ZKlWT3rPWSpBLVJktGgJfenib3rPEtOEvvVJk2NDzqXzqzxLSiWncVjQE3vTxL71nCWpFkp3FY0FlqVZKz0kqdHqkwsaCPVmNqz42q3G1USX42q3G1UIzVqNsUxF+Nqso1UUarUJyrn0WpYzQjgldCVRiRyAB1HsakjhmY/LFIfoprPjndD8jsv0OKui7E/wDr3cN/fU5z9RWcrlpIuR2tz3hcf7wxVpLWb+6v/fY/xqhFbySHMTpL6bW5P4dalWOVDh43U/7S4rJt9zVJdjp9Os3ecTSptdeGHqfWrl/NMuyKJWy3Uik0gMmmxtIeSM5PpWdf+Ybj7QjFomOAUboa4V71TXodukaenU07K980mKXAcdPepprVXhkC8FlIAHT1rK0+4JLZ3yEdAw5H41rvMY5I/kJU8E+lZzi4y0LhJONpGJZRJb3a25JO/lgex/zkVQmhVdQnnm5RnIUEffz/AEHFdPLaQzssuCHByD0rG1y0IuPO67l6VvTqqUvUxnScYa9DEkUs5ZyTIT82R0Oe1bUcbSabbogyWYis8xF1WTHJ+U/Wumsbf7PYoJMblyc+lXWnZIijC7ZYtIhBbrF6Corn93BIx5y2fyqvFdPJqfl9F28fjVq+jMlq4DBeOSegrks1JX6nVfmg7dDjZGeW4ZY1yzMcAVcnmWPTQ6Msk0R2l+oXPpWffXIt2kt4OBnDyZ5f/wCtUdkzS6feIqlsKGwBnvXc43SZ5jnZtGpomrPJIbadiyYLbyfu+9bN5GlzC9tIB5TDA9vQ1wsshtbJI/uyTfO/qFHQf1/Kuj0HUjfWRhYkzQDIPqKmpT+2iI1W1yv+vI4bWLR7O4aCQYKk/wA6yrlB/YTP3+1Af+OV2nja23iK8HUjY+PUVyNxDLJoCJFGzs90SAoz0XFdlOXNFM5Ze7Kxyk55NUZD1ren0a4Rd91JFbJ/00bn8hWXcf2dBwry3L+v3F/xrVxfU0jUT21MxmqJmqS4mEjZWNIwOMLn+tVmNYs3QpamFqaTTc1Ix+aM0zNGaBj80ZpmaXNAC5pCaTNNJpDAmmE0pNMNSykBNNzQaaTUjFJpM0maTNIYtFJmjNABRSUUAPVqkDVVD04PWaZo0Wg9KHqtvpd9O5Ni0JKcJKqB6cHqkxNFwSU4SVUD04PVpkNFwSU4SVUD04PVpk2LQkpwkqqGp4ancmxaD1Ir1UVqlVqpMRcR6sxtVFDVqM1SEX42q5G1UIzVuM1aEX424qzG1UozVlGpklxHq/aAvb3JUElUB4+orKV66LwyizG7iEqCWSBtigndkYNRUlyxuNK7sZqyVKslUpMxyEDlcna2OGGe1Cy+9DGjUSSte01KTKRyMWXgBtxVh+I/rmucjl561et5MuvPcVnKKe5UZWPTSfL0/EchJCcFm5P41zUd9d2kx8wuQfvJITgitu/nMWkF0xwgxkZBrmLW7nJEWVdD/BJyv/1q4qMLxbZ2VJ6qxpuzv/pNrI7RA5eMscp9fb3renbFusmNxABGeKyrawAdJ7WVY3/ijL5U/Q1s+WZICu3aecVlVkro1hGXK7FMXEiXIdAzo4yVHUVbuYIruAbiePmUjtWZKssdoMgq0TccdQf8mtKxPmWsZ54qZq3vI0g7+6+pXtbBg+ZiGRR8gqTUZXW3UQrklhVi5ZkgbacHHBFVlha5hjWXOASWOealSu+ZlOKS5ULZwlpBcygByNoAOas3S7rWRcgZU8npTQWZgEUKq9CamZQyFTyD1qW9blqPuuKOI/sy0aGa4uLwtHF94RL39Ae9Ps7uNLSdraOOEyOsK7fmwD3z3Nb93p8ckLKV3DOAmcL+NZOopZ2CQrcvzCjSLFEMDgHvXZGop6Hk1IOnqcZeTyX2oymIPJlsIAMnA4H6Vv6CJ9Muknvmgt4mXYFc4Y89axp9Zmgg/wBFtksoCcDaPnf8T/Osc3b3FwXmlbJGMn5j9K63DmVuhwc7UuY9J1oWS2N0jQ/aNq+aFY8H/Oa4HxJqt5Z2NjZoEtt0JlZIhjG48c+vFd/p6C+0uOXbmLySkpb7xwOleQ67cvealdTSEKQ2Ah6gDgCpw61a7FVNWpWsmYN3K0jFnYsx6knNZkpq7cHrWfKa3kawIHNRE09zURNZM2QhNJmg0lIYuaM0maM0ALmjNJmkzSAdmmk0maTNIYGmmlJpDSGNNNNONMNSykIaM0GmmpGLmim0uaLhYWikzRQBXDU4NRRWJsO3UBqKKoQ4NTg1FFUiWPDU8NRRVohkgNOBooq0ZseDTwaKKtCJFNSqaKKaEWENWozRRVokuRGrkVFFWiS0hqZTRRVCJA1a2j3kekatBcTo0iFM4Q9m4ooqZK6sxbDvEti2lasYAxMTDzIwT0B7VkrLRRUUm5QTZUlZtIsRy8ir0EnzDJxRRVMk9DupFm8OKwJJMYzmuXtz95iCdo6UUVy01ZP1NeZtpm1BNmFJc7Vx0UdK2NFu5JrZnfnHaiisasVys6acmmrGlDPFeI2BkA4YEVMqrGoVRgDpRRXHNWk0j0Kb5oqT3AD15peBRRUF9BpLfwinH7tFFAkjEkt78xOz7WkGSsZPy+xrBk066u5bhtQbEgjYJhsgZHpiiiuulUZ5WKoxjYw/+Eb1TUE/fahF9njOFLszY/DFVUTRNJkfz5bq9kjYBlRfLTI569f5UUV3025tpnmc1ktDqLDxAbyxieGNY4xcBAijA2kV5PrRxqdz2+c/zoorWnCMb2IjOUpaswZzzVGQ0UUSOyBWaozRRWLNUNpKKKQwozRRQAlJmiikMQmkzRRSAM0lFFAxppDRRUspDDTTRRUspCZozRRSGGaKKKBH/9k=',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=230198782,1915174504&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=230198782,1915174504&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=230198782,1915174504&fm=214&gp=0.jpg","FromURL":"http:\/\/www.ykzx.cn\/moban\/201912\/PPt_7457.html","FromUrl":"http:\/\/www.ykzx.cn\/moban\/201912\/PPt_7457.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=230198782,1915174504&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=230198782,1915174504&fm=26&gp=0.jpg",            "pageNum":3,            "objURL":"http://www.ykzx.cn/file/upload/1_180325233540_3.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Byhzx_z&e3BvgAzdH3F45kwgAzdH3Fda8l8dAzdH3FPPp_09c0_z&e3Bip4s",            "fromURLHost":"www.ykzx.cn","currentIndex":"",            "width":660,            "height":371,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534594_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"12430",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-03-25 00:00",            "fromPageTitle":"rar 目录:详细介绍下载地址相关下载 标签:  <strong>蓝色背景图<\/strong>片水彩背景",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "230198782,1915174504",            "os" : "3561677639,2579117874",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEsAhYDASEAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAECAwQFBgf/xAAwEAEAAgIBBAEDAgUDBQAAAAAAAQIDESEEEjFBUQUTYSIyFHGBkcFCYqEjQ1Kx0f/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EAB4RAQEAAwEAAwEBAAAAAAAAAAABAhExIQMSQTIi/9oADAMBAAIRAxEAPwD9x3+IN/iGw3+IN/gYN/iGleIjiEVbf4Tv8Anf4g3+IGjf4hO/xCNI/pBv8QC1bRE600RKAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8+OYiZjSW2dgImP3RtrtFNgLAsAa2bInaG0ta/thCpBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwDbBEbBU1nVoaICdgnUpFgCoTSIm2pBtqPhLIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgTptlKNAaW3IJ2tCCwNAAiJmJ3AN627o2lkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwwltmcADZsTaUxOhV4naUWUBUSRzMA3iIiNQlkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwwltiAhtAIkGkxOlonfILRJsaggVtjmZryuygAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBLTmAgkUBRMTqQXhOuRuJ7LfCYxzPngVrEahLKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8zDljLj7vE+JhttquMu5tGwVKBQBILF6rR52NxrW8TwuyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPG6K8TjtTXMTvfy6mr1ww4JRoFVKASCxfadjUq1NTaNt2aoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5/pcv28up/bbiXot5R5vju4K/crF+3fLLovAoJFAWLgo0x31Op8IrYRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfOdPXuz1jW43uXpxLpk8vxcSj7de+L+2HVaIFFu2U9gqJrMIBKYF2lNY3aBp0jKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Do9/dn47XT1Fpri1XzM6dL15Mf5c9bWx23WZj8O7HbvpEpWsF0I6rd1Y4mYW3Gt74QY9T1NcFI92t4h52X6j1EV7q9vH+3yJa3+ndbPVRetonurG5d8KsWI4ncDemsZJniI5XrvX6tf0ZVIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8PoJi1LzWYmJmPDXqdfa3+Y06Xryz+HPOvMu+JpXHuJ/TEb2VcNKfxWL5n+yMnVYqYrX7onUft+WW5lK8fN1HUZL905J/lXjTs6abWxxa8zN443M+BY5+ozby93Mxvt/sjz+QdX0+K0z71FYtHb8bl6iLFkK6Rri1uWqUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfDfSOsnD1NImf0XnttH+Xu5792XUeK/wDt1vXiwv8AlnM8K91u3t7p7fhF2hnnxzlw2pHmfAjzK5ctN90TMRxz6a5PqV8eKIxW1vnfwmnXHJ4+P6lfLl7ckzMWmdc+H0H07PTLEY8kfr1xs01K9KaVmvbrh345mcdZnzMcstRcV0i+KP1tbWisbmeGQraLRuJ3CQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH539NpOTrMf8A4RO5/wAPpHavn4cRKJiY8wy2gmJ18fzBwX6jBky1pMzEzPbFvEsp+kdRnjLbHWeyZmIieBrDry8X0vLg6j/rxrtniPl7PQdPac8ZImdVSukezSk3nUQ7oiIiIj0y3ExHM/leMczPwrbatYrHCL0i9dSyqMdOyNLgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPkPpfTY79Njy1nVYjUREe/y9HsmP5O1eHHHUIpqdq3jnaNIhTNWb11HjaC3S/Tpyz9y0RqLb8PUw4rViY15neo9M11wxRk6HFmtrJSsxvnUc/zK/TaUjtpOq/EQm3T6umvT1pXVeETinU+BrSaUnu3McNiqCDDN1MYrdsRuU4OojNuNatHoGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5r6f0/wBimSm54mJnbr07V5NaTqNKW4jaFjLfLfBim8xbjUSzTGbr0cPFe2PXK8Wmb2jtnj38svRGsREJRsAABEg8/JWLWm1pmLe4adHhvXLbJeNRrVY+fyq/jtEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4fdXpsNrZI/XkncV9scXVVyZYpMTWZ8O8nm3lyurp07hS1bzk/2IIti1zDr6ea0w7vMREczLFXGarC31LD3zFa3mvz8u7pctckRalt1sl46zq38NrrP4iL2jjU19S0yZ8eKJ7p8eWeujlx/VumyZIpFtb9y79xIAAitotvUglzddbLXp5nFvu36+Aa4JtOCk233dsb20AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8pe9slpte0zPypW3beLfE7et4d+vTpaLRE15iVpvSkc2iP5y5adJV4tExE74lx/UJvOCIiJ/dG9DThxW51P9Hp9NF8WOJi1qz51Hv8Amzk3g9COqt9nunW44/q8j6lmtGCZmZnumGW3k0yzFojXD636ffJb6bS083mJ1sqxtg+7/wByJjj38t2VERER4gEomImNSBEajSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfIzOvDObz9yK64n29bwNI3EcWlWYtvfGvaC2PqrYL9v8Aol6WXeXDHqbVYrpjfHz/AFWW+HqJp4mJ8fD0Pp3XZc1px5efcW/wzlx2+N6up+13eu7TLNipmxWpk/bPlht5c9HWl90ncR42+p6WtKdNipTxFI0labJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfJXpNZ5RFJnn09deHSYjSUFZisO/Dfv6fHzuYjUs5cax68z6r0U2v9+k/qtMR2x7l2fSvp+Xu+9eaxERrTGV8dsHtzirOL7fOvn/AC8zq62xXjHad+961th0c+uNvZ6e/Zhw78xWNlV2RMTETHiUsqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+avSLxr+zL7c1ncvU8dn6TVWZiBmla7nc+/Dr6Su7Wj1r/AJZyvjWMUyxa9rVi2orPmY9u/obfp8xbu86cnXHrtlhn6enUV1PFo8WSOrkp0m8n2b24rHduv59O/tjjzqBduquu2NeEsqzvkiuStdTMy0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHzi0UmYeqvNIzyVjfEeGMY43zMyztnLH1fx6a9PmjHe1dbnUSzfWp1lFrT3Rfid7mHf0FbV3M8RM8MVudejravtl0iIrEWtb3aeZSo1xW/0tWWojUJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhcTET40pOSe6dePT0vPGV53MqM1MkLU7Yy1taNxEn4zK9PtrOp1E68cNsNYm2/hydZ10elNcjogBrirMctWVgCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+azdRWs9kRufiJZ0y2m0RMRz8PRHllXvE+WczoZtN7WpXuyVr8zpKkerEcREfydVY7YiNOVejFff5VlG0biUxoGmPxLRFgCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+Ny0tXNe0xuLTuJbdLjt37158bd3i268tYxxuZZx23jwbKztTt59I3qYmPMLfUnj1+mtGeK3/vHxLqca9OPNss+OclIiLamJ3r5WwxNMWrT7Glk7BaMk144bRyzWokFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8tE90+fH/K9b2pO48+HZ8+Iv9y9u6f1RoxVmJmZjWxppMRMaYWjVpgLXf0G647W8bnh6FLTaOXOvRhxMoRsAa4qxO5mPfDZGoAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPzmfrXUW7I1SK13rh39P9Tx5axFqzFviOXV8/2vT6bNXJSIiefcTGpaXj3COn4rpOPpoybtaZjn0bPrt3VrWtYrWOI4h00r210zXfGJlVGk7AdFYiKxrwsjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8w6Posv1DqJw4OyLRWbTN7aiIhbootXu+YniYdXgkutvWr1F488/l1dP1c1nsyT3U+Z81/+wlbj0seL7lu2J1727ox0rSKRWNR4ZtdcImtK1niOV/SOkmkTKAE1rMzqBWtLa/T8NYRQFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8BP0OsZLV/iNxE+acxLrr0eLDg7axO4jy6vDJplqJ9G9RuPQ09rp7z9rFeJ57YelF4tWLRHEsV1wv4vCUdEegA3PqRSJ7Z3DoiSrFhFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8fFZxarqY0m19Vmba1rl0eGeMYxZL17qY7zWfHDXH0GTJMTk/RX3Hsrb04iIiIiNREcQ6cGWsUjHO4nfEs1vHyurehHUAQKqa+dtK2nuhFjYRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfNTETxMbhWMeK1tzSs6+Y8OjwtZ8bje/w0jeuStxKtpmJjTLT06zE467tvcRz8p9flHWJ2CxMRBqFUWrbttsG0TExuOUstAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+a0aiJmdeXR4V2seIK6QVtHj1+WVelSlYpSI57Y4lZHX8DfBFi0TwbVRALVtNZ/Ht0JVgIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+UjLPytXJO+eYdI+fK1reLceJbxxCu2KO5naZ3ywlro6XqOy3Zaf0z7+HftK6YXcAbTvgVoAT6b453SEqxYRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8fFl6Tw3HzovE8xP5dfd3V/LbtjxEqTE6YND1cVvuYq2+YSt/HF9COqeAVbcTWsSiY1MwohpinnSVWwigAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4xrWYmOGo+bGleeF62ms7h0dseNqzFo3CtrRE6YaS9HpL92CI914lK1hfW5KOoCgA1xeyq1EUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfFxx5WrOphqPmtYtE+2kWbjpjV6+d70ifMo2tSfT0ujx9uLv3+/18F46YOkYdBAJBSGuL3ARqI0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPi48ESr5jSv7oaw3i3h1aEl66rUjl7OKsVxUiPGkvHTBf5PbLoAAA2xR+jYsaCNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//2Q==',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1464465682,2498654841&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1464465682,2498654841&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1464465682,2498654841&fm=214&gp=0.jpg","FromURL":"http:\/\/www.pptjia.com\/pptbeijing\/5136.html","FromUrl":"http:\/\/www.pptjia.com\/pptbeijing\/5136.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=1464465682,2498654841&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=1464465682,2498654841&fm=26&gp=0.jpg",            "pageNum":4,            "objURL":"http://img.pptjia.com/image/20171010/fd03417ca4f65bba9d8f4c668bd998d0.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brrp3tw_z&e3Bv54AzdH3Frrpkjt3tg2AzdH3Fc8nm_z&e3Bip4s",            "fromURLHost":"www.pptjia.com","currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534594_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"104060",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2012-01-14 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>唯美心形白云ppt背景图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1464465682,2498654841",            "os" : "989169977,3028317356",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": 'data:image/jpeg;base64,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',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2406884615,1096929993&fm=11&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2406884615,1096929993&fm=11&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":5,            "objURL":"http://img.1ppt.com/uploads/allimg/2004/1_200401165444_2.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B8rrp_z&e3Bv54AzdH3Fw6ptvsjAzdH3Fm9dnm_z&e3Bip4s",            "fromURLHost":"www.1ppt.com","currentIndex":"",            "width":700,            "height":394,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534584_0_0_0",            "filesize":"",            "bdSrcType":"11",            "di":"104420",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2020-04-01 16:56",            "fromPageTitle":"rar 目录:详细介绍下载地址相关下载发表评论 标签:<strong>蓝色背景图<\/strong>片唯美",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2406884615,1096929993",            "os" : "269465687,2461253683",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3972058484,2087433777&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3972058484,2087433777&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3972058484,2087433777&fm=214&gp=0.jpg","FromURL":"http:\/\/tushuo.jk51.com\/tushuo\/4030529.html","FromUrl":"http:\/\/tushuo.jk51.com\/tushuo\/4030529.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3972058484,2087433777&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3972058484,2087433777&fm=26&gp=0.jpg",            "pageNum":6,            "objURL":"http://img.jk51.com/img_jk51/61935489.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fp7fi75_z&e3B3hc8_z&e3Bv54AzdH3Fp7fi75AzdH3F9anacdl_z&e3Bip4s",            "fromURLHost":"tushuo.jk51.com","currentIndex":"",            "width":1360,            "height":1020,            "type":"jpeg",            "is_gif":0,            "strategyAssessment": "534482_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"58960",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-12-09 07:15",            "fromPageTitle":"<strong>蓝色背景图<\/strong>片淡雅 (第1页)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3972058484,2087433777",            "os" : "3780880481,2626226512",            "simid" : "3557112625,573428956",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3501112132,2493850138&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3501112132,2493850138&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3501112132,2493850138&fm=214&gp=0.jpg","FromURL":"http:\/\/www.baiwanppt.com\/beijing\/kejitu\/4820.html","FromUrl":"http:\/\/www.baiwanppt.com\/beijing\/kejitu\/4820.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3501112132,2493850138&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3501112132,2493850138&fm=26&gp=0.jpg",            "pageNum":7,            "objURL":"http://www.baiwanppt.com/uploads/allimg/c190924/15E313c542O0-3B27.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bkwtowgrrp_z&e3Bv54AzdH3Fkjt3tg2AzdH3Fhj3tp7AzdH3F9bda_z&e3Bip4s",            "fromURLHost":"www.baiwanppt.com","currentIndex":"",            "width":640,            "height":480,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534466_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"13200",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2013-01-17 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>抽象科技感ppt背景图片下载4820",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3501112132,2493850138",            "os" : "1001513955,2787290552",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=1591363537,3126908742&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1591363537,3126908742&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1591363537,3126908742&fm=214&gp=0.jpg","FromURL":"http:\/\/www.hd-tec.cn\/PPT\u9473\u5c7e\u6ad9\u9483\u6fca\u58ca.html","FromUrl":"http:\/\/www.hd-tec.cn\/PPT\u9473\u5c7e\u6ad9\u9483\u6fca\u58ca.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=1591363537,3126908742&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=1591363537,3126908742&fm=26&gp=0.jpg",            "pageNum":8,            "objURL":"http://www.hd-tec.cn/img.php?img.pptjia.com/image/20171031/5443c696c96a60c57c490c888fb19256.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bi1-pjv_z&e3BvgAzdH3FPPT%El%l8%Bn%Ec%B8%BE%Em%AB%ll%El%ld%bn%Em%BF%bA%Ec%An%bA_z&e3Bip4s",            "fromURLHost":"www.hd-tec.cn","currentIndex":"",            "width":1281,            "height":720,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534178_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"62920",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2017-10-31 00:00",            "fromPageTitle":"ppt<strong>背景蓝色<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1591363537,3126908742",            "os" : "2862662566,1116508930",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3637768885,272848386&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3637768885,272848386&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3637768885,272848386&fm=214&gp=0.jpg","FromURL":"http:\/\/www.woippt.com\/beijing\/keji\/40693.html","FromUrl":"http:\/\/www.woippt.com\/beijing\/keji\/40693.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3637768885,272848386&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3637768885,272848386&fm=26&gp=0.jpg",            "pageNum":9,            "objURL":"http://www.woippt.com/d/file/bigpic/2019-11-22/20/20162542194.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bo5trrp_z&e3Bv54AzdH3Fkjt3tg2AzdH3Fhj3tAzdH3F9amln_z&e3Bip4s",            "fromURLHost":"www.woippt.com","currentIndex":"",            "width":660,            "height":369,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534098_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"18810",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-04-03 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>渐变ios风格的科技ppt背景图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3637768885,272848386",            "os" : "549725347,2586094647",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2076987002,4230347417&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2076987002,4230347417&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2076987002,4230347417&fm=214&gp=0.jpg","FromURL":"http:\/\/www.glzy8.com\/down\/333466.html","FromUrl":"http:\/\/www.glzy8.com\/down\/333466.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2076987002,4230347417&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2076987002,4230347417&fm=26&gp=0.jpg",            "pageNum":10,            "objURL":"http://img1.glzy8.com/upfiles/www/ppt/jpg/32097.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B2szyb_z&e3Bv54AzdH3F15ogAzdH3Fnnn9mm_z&e3Bip4s",            "fromURLHost":"www.glzy8.com","currentIndex":"",            "width":700,            "height":525,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533730_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"67870",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2012-05-10 22:00",            "fromPageTitle":"浅<strong>蓝色<\/strong>淡雅ppt背景图片素材下载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2076987002,4230347417",            "os" : "2247396715,2441491576",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=4005253180,2395424720&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=4005253180,2395424720&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=4005253180,2395424720&fm=214&gp=0.jpg","FromURL":"http:\/\/www.ykzx.cn\/moban\/201912\/PPt_7683.html","FromUrl":"http:\/\/www.ykzx.cn\/moban\/201912\/PPt_7683.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=4005253180,2395424720&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=4005253180,2395424720&fm=26&gp=0.jpg",            "pageNum":11,            "objURL":"http://www.ykzx.cn/file/upload/1_170317172727_1.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Byhzx_z&e3BvgAzdH3F45kwgAzdH3Fda8l8dAzdH3FPPp_0mbn_z&e3Bip4s",            "fromURLHost":"www.ykzx.cn","currentIndex":"",            "width":660,            "height":371,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533026_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"77110",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2017-03-17 00:00",            "fromPageTitle":"rar 目录:详细介绍下载地址相关下载 标签:  <strong>蓝色背景图<\/strong>片星空背景",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4005253180,2395424720",            "os" : "3680795829,2582494922",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=4080028839,688814749&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=4080028839,688814749&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=4080028839,688814749&fm=214&gp=0.jpg","FromURL":"http:\/\/www4.freep.cn\/hot\/2621682.html","FromUrl":"http:\/\/www4.freep.cn\/hot\/2621682.html"},{"ObjURL":"http:\/\/www.1-eye.cn\/img.php?pic63.nipic.com\/file\/20150406\/20677857_172110544000_2.png","ObjUrl":"http:\/\/www.1-eye.cn\/img.php?pic63.nipic.com\/file\/20150406\/20677857_172110544000_2.png","FromURL":"http:\/\/www.1-eye.cn\/\u84dd\u8272\u80cc\u666f\u56fe.html","FromUrl":"http:\/\/www.1-eye.cn\/\u84dd\u8272\u80cc\u666f\u56fe.html"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=4080028839,688814749&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=4080028839,688814749&fm=26&gp=0.jpg",            "pageNum":12,            "objURL":"http://pic63.nipic.com/file/20150406/20677857_172110544000_2.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fojt4jtkw_z&e3Bv54AzdH3Ff5AzdH3F%El%ld%bn%Em%BF%bA%Ec%An%bA%El%la%Ab%Ec%bB%AC%E0%b8%bl%E0%ba%Bl%E0%bd%Bd%Ec%BD%BE%E0%ba%lB%Em%b9%AC%EE%lb%BF%Em%lD%bb%E0%l8%Ba%Eb%bb%Ba_z&e3Bip4s",            "fromURLHost":"weimeiba.com","currentIndex":"",            "width":786,            "height":1024,            "type":"png",            "is_gif":0,            "strategyAssessment": "535042_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"6600",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2015-04-06 00:00",            "fromPageTitle":"<strong>蓝色背景图<\/strong>片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4080028839,688814749",            "os" : "2601349234,1940669015",            "simid" : "3421783156,392142779",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2967236522,2566688032&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2967236522,2566688032&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2967236522,2566688032&fm=214&gp=0.jpg","FromURL":"http:\/\/17qq.com\/qqtouxiang\/1247395_p4.html","FromUrl":"http:\/\/17qq.com\/qqtouxiang\/1247395_p4.html"},{"ObjURL":"http:\/\/hbimg.huabanimg.com\/280c2ea76ce2c23b177e299cef9e58ad25b83594f442-dc3q1z_fw658","ObjUrl":"http:\/\/hbimg.huabanimg.com\/280c2ea76ce2c23b177e299cef9e58ad25b83594f442-dc3q1z_fw658","FromURL":"http:\/\/huaban.com\/qjz502121\/pins\/","FromUrl":"http:\/\/huaban.com\/qjz502121\/pins\/"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2967236522,2566688032&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2967236522,2566688032&fm=26&gp=0.jpg",            "pageNum":13,            "objURL":"http://hbimg.b0.upaiyun.com/833fc4e9e8e49beca2e282bbc91b29a36385191e7934-SOIC9k_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3FlmdnblddAzdH3F",            "fromURLHost":"huaban.com","currentIndex":"",            "width":650,            "height":433,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "535346_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"97900",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2012-08-24 13:39",            "fromPageTitle":"浅<strong>蓝色背景图<\/strong>片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2967236522,2566688032",            "os" : "2455640510,4053195166",            "simid" : "3408541656,15709980",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=102834969,2294629631&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=102834969,2294629631&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=102834969,2294629631&fm=214&gp=0.jpg","FromURL":"http:\/\/www.16pic.com\/zhuangshi\/pic_96661.html","FromUrl":"http:\/\/www.16pic.com\/zhuangshi\/pic_96661.html"},{"ObjURL":"http:\/\/pic.16pic.com\/00\/00\/96\/16pic_96661_b.jpg","ObjUrl":"http:\/\/pic.16pic.com\/00\/00\/96\/16pic_96661_b.jpg","FromURL":"http:\/\/www.16pic.com\/zhuangshi\/pic_96661.html","FromUrl":"http:\/\/www.16pic.com\/zhuangshi\/pic_96661.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=102834969,2294629631&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=102834969,2294629631&fm=26&gp=0.jpg",            "pageNum":14,            "objURL":"http://pic2.16pic.com/00/00/96/16pic_96661_b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bxtvt_z&e3BgjpAzdH3FtvijAzdH3F1jpwts-0ba8d9_z&e3Bip4s",            "fromURLHost":"www.xici.net","currentIndex":"",            "width":650,            "height":401,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "796738_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"12650",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2013-06-06 00:00",            "fromPageTitle":"<strong>蓝色背景图<\/strong> 蓝色壁纸图片大全",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "102834969,2294629631",            "os" : "1878624640,2334221111",            "simid" : "3436238319,406379373",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2017805653,2873668685&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=2017805653,2873668685&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img3.imgtn.bdimg.com\/it\/u=2017805653,2873668685&fm=214&gp=0.jpg","FromURL":"http:\/\/huaban.com\/pins\/1544662660\/","FromUrl":"http:\/\/huaban.com\/pins\/1544662660\/"},{"ObjURL":"http:\/\/www.flybridal.com\/huangse\/ahr0cdovl3bpyze1nc5uaxbpyy5jb20vzmlszs8ymde4mdeyos8ymtuzmjk1ml8ymtqyntu4mdkwmdbfmi5qcgc=.jpg","ObjUrl":"http:\/\/www.flybridal.com\/huangse\/ahr0cdovl3bpyze1nc5uaxbpyy5jb20vzmlszs8ymde4mdeyos8ymtuzmjk1ml8ymtqyntu4mdkwmdbfmi5qcgc=.jpg","FromURL":"http:\/\/www.flybridal.com\/jidujiao\/huiprlis.php","FromUrl":"http:\/\/www.flybridal.com\/jidujiao\/huiprlis.php"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2017805653,2873668685&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2017805653,2873668685&fm=26&gp=0.jpg",            "pageNum":15,            "objURL":"http://hbimg.b0.upaiyun.com/c64b1edb36f8aed7a3c254406166de4a24352aad28870-AHZWIu_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F8c99mmdmmaAzdH3F",            "fromURLHost":"huaban.com","currentIndex":"",            "width":650,            "height":650,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533394_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"119020",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-01-29 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>科技背景图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2017805653,2873668685",            "os" : "3254126134,1962388130",            "simid" : "3214894285,123193696",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3924885882,1994626316&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3924885882,1994626316&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3924885882,1994626316&fm=214&gp=0.jpg","FromURL":"http:\/\/www.serengeseba.com\/w\/\u8bc1\u4ef6\u7167\u84dd\u8272\u80cc\u666f\u56fe\u7247%20\u6a21\u677f\/","FromUrl":"http:\/\/www.serengeseba.com\/w\/\u8bc1\u4ef6\u7167\u84dd\u8272\u80cc\u666f\u56fe\u7247%20\u6a21\u677f\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3924885882,1994626316&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3924885882,1994626316&fm=26&gp=0.jpg",            "pageNum":16,            "objURL":"http://i.serengeseba.com/uploads/i_4_3924885882x1994626316_26.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bfj6jg2jfjkw_z&e3Bv54AzdH3FoAzdH3F%Eb%AF%b8%E9%BB%Bm%E0%bc%A0%Eb%ln%lD%Eb%bl%Bd%Eb%bn%bC%Em%ll%AF%Ec%lB%BE%E0%bl%b0%da%Em%Ab%A8%Em%lD%BFAzdH3F",            "fromURLHost":"www.serengeseba.com","currentIndex":"",            "width":500,            "height":366,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533698_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"113190",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2015-12-28 02:46",            "fromPageTitle":"证件照<strong>蓝色背景图<\/strong>片 模板",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3924885882,1994626316",            "os" : "3582934807,1178041510",            "simid" : "3584698697,605030662",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2137723510,3360826648&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2137723510,3360826648&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2137723510,3360826648&fm=214&gp=0.jpg","FromURL":"http:\/\/huaban.com\/pins\/1507363774\/","FromUrl":"http:\/\/huaban.com\/pins\/1507363774\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2137723510,3360826648&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2137723510,3360826648&fm=26&gp=0.jpg",            "pageNum":17,            "objURL":"http://hbimg.b0.upaiyun.com/c735d9af69df84e439a0b81c050fa8ac1d2d27fa318fe-Xmfkap_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F8ca0nmn009AzdH3F",            "fromURLHost":"huaban.com","currentIndex":"",            "width":658,            "height":308,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534210_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"108350",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-02-01 21:33",            "fromPageTitle":"<strong>蓝色<\/strong>会议背景背景图片素材",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2137723510,3360826648",            "os" : "3584810899,1892357395",            "simid" : "4137514078,513645767",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=14335000,2737653851&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=14335000,2737653851&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=14335000,2737653851&fm=214&gp=0.jpg","FromURL":"http:\/\/www.malemodelspicture.net\/\u6de1\u84dd\u8272\u58c1\u7eb8\u56fe\u7247\u5c55\u793a_\u6de1\u84dd\u8272\u58c1\u7eb8\u76f8\u5173\u56fe\u7247\u4e0b\u8f7d\/\u6de1\u84dd\u8272\u58c1\u7eb8\u56fe\u7247\u5c55\u793a_\u6de1\u84dd\u8272\u58c1\u7eb8\u76f8\u5173\u56fe\u7247\u4e0b\u8f7d.html","FromUrl":"http:\/\/www.malemodelspicture.net\/\u6de1\u84dd\u8272\u58c1\u7eb8\u56fe\u7247\u5c55\u793a_\u6de1\u84dd\u8272\u58c1\u7eb8\u76f8\u5173\u56fe\u7247\u4e0b\u8f7d\/\u6de1\u84dd\u8272\u58c1\u7eb8\u56fe\u7247\u5c55\u793a_\u6de1\u84dd\u8272\u58c1\u7eb8\u76f8\u5173\u56fe\u7247\u4e0b\u8f7d.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=14335000,2737653851&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=14335000,2737653851&fm=26&gp=0.jpg",            "pageNum":18,            "objURL":"http://file06.16sucai.com/2016/0406/01a24103eaa7b931b2c54db488d992ed.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4wsj451jsfrtvp76j_z&e3BgjpAzdH3F%Em%B0%A8%Eb%ln%lD%Eb%bl%Bd%Ec%An%b8%E0%BA%Bb%Ec%lB%BE%E0%bl%b0%Ec%B8%lc%E0%A9%BA_%Em%B0%A8%Eb%ln%lD%Eb%bl%Bd%Ec%An%b8%E0%BA%Bb%E0%lB%Bb%Ec%bc%Bn%Ec%lB%BE%E0%bl%b0%E9%Bb%bB%Eb%BD%BDAzdH3F%Em%B0%A8%Eb%ln%lD%Eb%bl%Bd%Ec%An%b8%E0%BA%Bb%Ec%lB%BE%E0%bl%b0%Ec%B8%lc%E0%A9%BA_%Em%B0%A8%Eb%ln%lD%Eb%bl%Bd%Ec%An%b8%E0%BA%Bb%E0%lB%Bb%Ec%bc%Bn%Ec%lB%BE%E0%bl%b0%E9%Bb%bB%Eb%BD%BD_z&e3Bip4s",            "fromURLHost":"www.malemodelspicture.net","currentIndex":"",            "width":7016,            "height":4961,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534258_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"61930",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2016-04-07 23:50",            "fromPageTitle":"<strong>蓝色背景图<\/strong>片展示_蓝色背景相关图片下载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "14335000,2737653851",            "os" : "2423834597,2225952626",            "simid" : "4268076558,839189303",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1366861531,2725633817&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1366861531,2725633817&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1366861531,2725633817&fm=214&gp=0.jpg","FromURL":"http:\/\/www.malemodelspicture.net\/\u9473\u5c7e\u6ad9\u9365\u5267\u5896\/\u9473\u5c7e\u6ad9\u9365\u5267\u5896-\u9483\u6fca\u58ca\u7efe\u630e\u6f6f\u7efe\u572d\u608a\u9473\u5c7e\u6ad9-\u9483\u6fca\u58ca-\u93c9\uff04\u6c57-\u59ca\ufe40\u591f\u9473\u5c7e\u6ad9.html","FromUrl":"http:\/\/www.malemodelspicture.net\/\u9473\u5c7e\u6ad9\u9365\u5267\u5896\/\u9473\u5c7e\u6ad9\u9365\u5267\u5896-\u9483\u6fca\u58ca\u7efe\u630e\u6f6f\u7efe\u572d\u608a\u9473\u5c7e\u6ad9-\u9483\u6fca\u58ca-\u93c9\uff04\u6c57-\u59ca\ufe40\u591f\u9473\u5c7e\u6ad9.html"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1366861531,2725633817&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1366861531,2725633817&fm=26&gp=0.jpg",            "pageNum":19,            "objURL":"http://file02.16sucai.com/d/file/2014/0830/0b5be60922e461396fc57f99a2818c2f.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4wsj451jsfrtvp76j_z&e3BgjpAzdH3F%El%l8%Bn%Ec%B8%BE%Em%AB%ll%El%bD%Ac%Ec%bl%A0%Ec%Ad%lmAzdH3F%El%l8%Bn%Ec%B8%BE%Em%AB%ll%El%bD%Ac%Ec%bl%A0%Ec%Ad%lm-%El%ld%bn%Em%BF%bA%Ec%An%bA%E0%BB%BE%Em%bC%bE%Em%BD%AF%E0%BB%BE%Ec%lC%AD%Em%bd%bA%El%l8%Bn%Ec%B8%BE%Em%AB%ll-%El%ld%bn%Em%BF%bA%Ec%An%bA-%El%bF%bl%EF%BC%b9%Em%B8%l0-%Ec%A0%bA%EF%Bl%ba%Ec%A9%lF%El%l8%Bn%Ec%B8%BE%Em%AB%ll_z&e3Bip4s",            "fromURLHost":"www.malemodelspicture.net","currentIndex":"",            "width":680,            "height":920,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534962_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"99220",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2014-09-09 17:35",            "fromPageTitle":"<strong>背景<\/strong>图片 蓝色线条纹理背景 蓝色 条纹 梦幻背景",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1366861531,2725633817",            "os" : "272371119,1998637497",            "simid" : "4203019124,433006139",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2737441091,1200268413&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2737441091,1200268413&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2737441091,1200268413&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sccnn.com\/shiliangtuku\/huawenbiankuang\/shiliangbeijing\/20141223-126448.html","FromUrl":"http:\/\/www.sccnn.com\/shiliangtuku\/huawenbiankuang\/shiliangbeijing\/20141223-126448.html"},{"ObjURL":"http:\/\/file.wantu8.com\/wan007\/im3\/a16573.jpg","ObjUrl":"http:\/\/file.wantu8.com\/wan007\/im3\/a16573.jpg","FromURL":"http:\/\/wantu8.com\/sucai\/pm\/tp\/bjtp\/2016-11-16\/23766.html","FromUrl":"http:\/\/wantu8.com\/sucai\/pm\/tp\/bjtp\/2016-11-16\/23766.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2737441091,1200268413&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2737441091,1200268413&fm=26&gp=0.jpg",            "pageNum":20,            "objURL":"http://img.sccnn.com/bimg/338/16573.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Buhuc_z&e3Bv54AzdH3F1tfrAzdH3F0n80n8_z&e3Bip4s",            "fromURLHost":"www.fkf5.com","currentIndex":"",            "width":600,            "height":450,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534370_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"15620",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-10-23 00:00",            "fromPageTitle":"黑板报<strong>蓝色背景图<\/strong>立体",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2737441091,1200268413",            "os" : "2174639090,2734449886",            "simid" : "3555962035,568056384",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3436955049,2475360886&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3436955049,2475360886&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3436955049,2475360886&fm=214&gp=0.jpg","FromURL":"http:\/\/www.16pic.com\/psd\/pic_81493.html","FromUrl":"http:\/\/www.16pic.com\/psd\/pic_81493.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3436955049,2475360886&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3436955049,2475360886&fm=26&gp=0.jpg",            "pageNum":21,            "objURL":"http://photo.16pic.com/00/00/81/16pic_81493_b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B8mrtv_z&e3Bv54AzdH3Frf1AzdH3Frtv_b89ln_z&e3Bip4s",            "fromURLHost":"www.16pic.com","currentIndex":"",            "width":650,            "height":422,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533746_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"21670",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2013-02-17 00:00",            "fromPageTitle":"<strong>蓝色背景图<\/strong>片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3436955049,2475360886",            "os" : "2332262046,3105442983",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3517644702,3923114286&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3517644702,3923114286&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3517644702,3923114286&fm=214&gp=0.jpg","FromURL":"http:\/\/huaban.com\/cwkcpywyav\/pins\/","FromUrl":"http:\/\/huaban.com\/cwkcpywyav\/pins\/"},{"ObjURL":"http:\/\/www.flybridal.com\/huangse\/ahr0cdovl3bpyzi5lm5pcgljlmnvbs8ymdezmduxny85mjuymtuwxze2mtcyoty2njm1m18ylmpwzw==.jpg","ObjUrl":"http:\/\/www.flybridal.com\/huangse\/ahr0cdovl3bpyzi5lm5pcgljlmnvbs8ymdezmduxny85mjuymtuwxze2mtcyoty2njm1m18ylmpwzw==.jpg","FromURL":"http:\/\/www.flybridal.com\/jidujiao\/hjuisrpu.php","FromUrl":"http:\/\/www.flybridal.com\/jidujiao\/hjuisrpu.php"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3517644702,3923114286&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3517644702,3923114286&fm=26&gp=0.jpg",            "pageNum":22,            "objURL":"http://hbimg.b0.upaiyun.com/8342f04fd5d0210c40eee85d48018d06d58f7038128b2-cWlDrv_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F8ca9bcmcmdAzdH3F",            "fromURLHost":"huaban.com","currentIndex":"",            "width":650,            "height":954,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534946_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"100980",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2013-05-17 00:00",            "fromPageTitle":"星光点点<strong>蓝色背景<\/strong>素材",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3517644702,3923114286",            "os" : "115733253,370552421",            "simid" : "4051385217,670543529",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1026935144,1364301321&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1026935144,1364301321&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1026935144,1364301321&fm=214&gp=0.jpg","FromURL":"http:\/\/news2010x0223x559927.tuxi.com.cn\/viewb-23778-237780103.html","FromUrl":"http:\/\/news2010x0223x559927.tuxi.com.cn\/viewb-23778-237780103.html"},{"ObjURL":"http:\/\/ku.90sjimg.com\/back_pic\/04\/09\/86\/6658160a142259b.jpg","ObjUrl":"http:\/\/ku.90sjimg.com\/back_pic\/04\/09\/86\/6658160a142259b.jpg","FromURL":"http:\/\/zhidao20091224x375908.tuxi.com.cn\/viewb-23778-237780103.html","FromUrl":"http:\/\/zhidao20091224x375908.tuxi.com.cn\/viewb-23778-237780103.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1026935144,1364301321&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1026935144,1364301321&fm=26&gp=0.jpg",            "pageNum":23,            "objURL":"http://bpic.588ku.com/back_pic/04/09/86/6658160a142259b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Flafij3t_z&e3Bv54AzdH3Ff7vwtAzdH3Fd8dmnl80_z&e3Bip4s",            "fromURLHost":"90sheji.com","currentIndex":"",            "width":650,            "height":650,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534338_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"106700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2009-12-24 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>星空主图背景",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1026935144,1364301321",            "os" : "3129229334,4257356603",            "simid" : "3410504520,335019898",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=213305192,3025805279&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=213305192,3025805279&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img2.imgtn.bdimg.com\/it\/u=213305192,3025805279&fm=214&gp=0.jpg","FromURL":"http:\/\/www.912pic.com\/item\/1037953.html","FromUrl":"http:\/\/www.912pic.com\/item\/1037953.html"},{"ObjURL":"http:\/\/pic.soutu123.com\/back_pic\/18\/09\/12\/a7a163cd8016300734468a97af434280.jpg!\/fw\/700\/quality\/90\/unsharp\/true\/compress\/true","ObjUrl":"http:\/\/pic.soutu123.com\/back_pic\/18\/09\/12\/a7a163cd8016300734468a97af434280.jpg!\/fw\/700\/quality\/90\/unsharp\/true\/compress\/true","FromURL":"http:\/\/www.soutu123.com\/back\/1248320.html","FromUrl":"http:\/\/www.soutu123.com\/back\/1248320.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=213305192,3025805279&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=213305192,3025805279&fm=26&gp=0.jpg",            "pageNum":24,            "objURL":"http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/04/47/f8e9510d8feefbe41c181bbb61381d69.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fr00_z&e3B562AzdH3F%Ec%Ab%B9%E0%lm%AF%Em%l8%l8%El%l8%Bl%Eb%bC%Bm%Ec%b9%l0%El%bF%bc%EE%bb%lA%Em%Bc%lbAzdH3F",            "fromURLHost":"p77.org","currentIndex":"",            "width":1920,            "height":652,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534098_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"18700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-01-20 00:00",            "fromPageTitle":"海<strong>蓝色背景图<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "213305192,3025805279",            "os" : "3853584789,3838303166",            "simid" : "4201281848,741726440",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=110812190,281847033&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=110812190,281847033&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=110812190,281847033&fm=214&gp=0.jpg","FromURL":"http:\/\/www.16pic.com\/psd\/pic_1568615.html","FromUrl":"http:\/\/www.16pic.com\/psd\/pic_1568615.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=110812190,281847033&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=110812190,281847033&fm=26&gp=0.jpg",            "pageNum":25,            "objURL":"http://pic3.16pic.com/00/15/68/16pic_1568615_b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B8mrtv_z&e3Bv54AzdH3Frf1AzdH3Frtv_8cmbm8c_z&e3Bip4s",            "fromURLHost":"www.16pic.com","currentIndex":"",            "width":1024,            "height":577,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534338_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"16390",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2015-02-18 00:00",            "fromPageTitle":"<strong>蓝色<\/strong>水背景图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "110812190,281847033",            "os" : "2854134238,2558904927",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=2379537756,2351914588&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2379537756,2351914588&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2379537756,2351914588&fm=214&gp=0.jpg","FromURL":"http:\/\/huaban.com\/pins\/1436164536\/","FromUrl":"http:\/\/huaban.com\/pins\/1436164536\/"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=2379537756,2351914588&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=2379537756,2351914588&fm=26&gp=0.jpg",            "pageNum":26,            "objURL":"http://hbimg.b0.upaiyun.com/8e43a098b88514966b4a159c1ae1fe812fffe2c9c5ff-EVhjXj_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F89nm8m9cnmAzdH3F",            "fromURLHost":"huaban.com","currentIndex":"",            "width":658,            "height":360,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "533906_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"20680",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2017-12-14 09:05",            "fromPageTitle":"<strong>蓝色<\/strong>高清背景图 - 黄蜂素材网_高质量免费素材共享平台_免版权图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2379537756,2351914588",            "os" : "608718506,2078781516",            "simid" : "4068310072,504591532",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2382124300,3068887336&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2382124300,3068887336&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2382124300,3068887336&fm=214&gp=0.jpg","FromURL":"http:\/\/www.cpnic.com\/pic\/\u9413\u0445\u5896\u7efe\ue21d\u6451\u9479\u8336\u5117\u93c5\ue21a\u6d58\/","FromUrl":"http:\/\/www.cpnic.com\/pic\/\u9413\u0445\u5896\u7efe\ue21d\u6451\u9479\u8336\u5117\u93c5\ue21a\u6d58\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2382124300,3068887336&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2382124300,3068887336&fm=26&gp=0.jpg",            "pageNum":27,            "objURL":"http://www.cpnic.com/UploadFiles/img_3_2790344873_3776091506_26.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bvrgtv_z&e3Bv54AzdH3FrtvAzdH3F%El%la%ln%D8%bc%Ec%Ad%lm%E0%BB%BE%EE%bb%lD%Em%l8%l8%El%l8%Bl%Eb%bC%Bm%Ec%b9%l0%El%bF%bc%EE%bb%lA%Em%Bc%lbAzdH3F",            "fromURLHost":"www.cpnic.com","currentIndex":"",            "width":459,            "height":564,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "532610_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"125620",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2009-01-19 01:00",            "fromPageTitle":"照片纯<strong>蓝色背景图<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2382124300,3068887336",            "os" : "1646313022,608703198",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2820230349,1975475921&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2820230349,1975475921&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2820230349,1975475921&fm=214&gp=0.jpg","FromURL":"http:\/\/huaban.com\/pins\/1549393346","FromUrl":"http:\/\/huaban.com\/pins\/1549393346"},{"ObjURL":"http:\/\/image.biaobaiju.com\/uploads\/20190928\/19\/1569669703-yngzardwkc.jpg","ObjUrl":"http:\/\/image.biaobaiju.com\/uploads\/20190928\/19\/1569669703-yngzardwkc.jpg","FromURL":"http:\/\/www.biaobaiju.com\/langman\/88237_2.html","FromUrl":"http:\/\/www.biaobaiju.com\/langman\/88237_2.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2820230349,1975475921&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2820230349,1975475921&fm=26&gp=0.jpg",            "pageNum":28,            "objURL":"http://image.biaobaiju.com/uploads/20190928/19/1569669703-YngZArDWkC.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bktw5kwt37_z&e3Bv54AzdH3Fswg24wgAzdH3Fbbdn0_d_z&e3Bip4s",            "fromURLHost":"www.biaobaiju.com","currentIndex":"",            "width":658,            "height":415,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534130_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"64020",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2016-11-10 00:00",            "fromPageTitle":"唯美彩色粒子<strong>背景<\/strong>素材,闪亮光效光彩背景高清蓝色图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2820230349,1975475921",            "os" : "3612269820,2800852460",            "simid" : "3313362116,246003368",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2636133106,914798968&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2636133106,914798968&fm=214&gp=0.jpg","ObjUrl":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2636133106,914798968&fm=214&gp=0.jpg","FromURL":"http:\/\/90sheji.com\/sucai\/946684.html","FromUrl":"http:\/\/90sheji.com\/sucai\/946684.html"},{"ObjURL":"http:\/\/pic.90sjimg.com\/back_pic\/qk\/back_origin_pic\/00\/01\/49\/84ce22a05e588b328fd904ec468aac57.jpg","ObjUrl":"http:\/\/pic.90sjimg.com\/back_pic\/qk\/back_origin_pic\/00\/01\/49\/84ce22a05e588b328fd904ec468aac57.jpg","FromURL":"http:\/\/www.hunandv.com\/\u5a23\u6a3a\u7582\u9350\u5470\u3002\u5a34\u950b\u59e4\u9473\u5c7e\u6ad9\/","FromUrl":"http:\/\/www.hunandv.com\/\u5a23\u6a3a\u7582\u9350\u5470\u3002\u5a34\u950b\u59e4\u9473\u5c7e\u6ad9\/"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2636133106,914798968&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2636133106,914798968&fm=26&gp=0.jpg",            "pageNum":29,            "objURL":"http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/01/49/84ce22a05e588b328fd904ec468aac57.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brsstg_z&e3Bv54AzdH3F%El%ld%bn%Em%BF%bA%Ec%An%bA%El%bF%b9%E0%bm%BA%Ed%l9%lmAzdH3F",            "fromURLHost":"www.pllin.com","currentIndex":"",            "width":1920,            "height":728,            "type":"jpg",            "is_gif":0,            "strategyAssessment": "534786_0_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"9900",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2017-04-03 17:15",            "fromPageTitle":"绚丽<strong>蓝色<\/strong>星空淘宝海报背景背景图下载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2636133106,914798968",            "os" : "4275012458,3409809698",            "simid" : "4057647894,594025744",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[{"type":"FCAD","cellClass":"fc-default","timeSign":"36","posType":70010,"pageNum":0,"thumbURL":"https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00297-1657.jpg","middleURL":"https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00297-1657.jpg","largeTnImageUrl":"https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00297-1657.jpg","hoverURL":"https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00297-1657.jpg","matchURL":"https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00297-1657.jpg","picId":"0","fromURLHost":"www.sheji688.com","bdImgnewsDate":"1000","fromURL":"http:\/\/www.baidu.com\/baidu.php?url=000000j0xnZgmfstWpIPq8ofWmKgi5VwRaUKgFcgtkSUnpZVgpm-UvXubDpubMnI8vryxLRKYO4KSzT_7OQ9Q1u1p_GlH1XzwpfkdHX7AYJa1KW2wTu8il3qtvgsrQPkE5ESAWw7lnBTuMl8_9HB6w3cb_zU8Ge5wo00L650AVdk7_EZ6a8E5ydCKsHTOJLIYPVd5KTb8NNVpULXJhy-Svbzm_Pd.7Y_arGrNOH_vc6Eu9emrtPHnH7qvHowuEHwmY_YD15uCqTI7hFW4N4ee_MyJ4BEFb3vUrkiOi1JHukyAp7W_3eVqp6.U1Yk0ZDqsQUFJeA1EojPE0KspynqnfKY5Tavzp8k_els1Us0pyYqn1mL0ATqTZP8TsKdpHY0TA-b5Hc0mv-b5Hn4r0KVIjYzPjDs0AVG5H00TMfqQHD0uy-b5fKBpHYznjwxnWDLg1nsn-t1njn0Uynqn0KkTA-b5H00TyPGujYs0ZFMIA7M5H00Uy-b5H00pg7Y5H00mycqn7ts0ANzu1Ys0ZKs5H00UMus5H08nj0snj0snj00Ugws5H00uAwETjYs0ZFJ5H00uMfqn0KspjYs0Aq15H00mMTqn0K8IjYs0ZPl5fK9TdqGuAnqUMnVUhC0pywW5fKYIgnqP1ndP161Pj6knj64nWDkn163PsKzug7Y5HDdrjmdnWRLnjmLrj00Tv-b5yDYuHRkPj6sPhRknjf3rjm0mLPV5RfdfbFjPbuanbnsPbcvwRf0mynqnfKsUWYs0Z7VIjYs0Z7VT1Ys0ZGY5H00UyPxuMFEUHYs0Aw9UMNBuNqsUA78pyw15H00TA7Ygvu_myTqn0Kbmv-b5H00ugwGujYVnfK9TLKWm1Ys0ZNspy4Wm1Ys0Z7VuWYs0AuWIgfqn0KGTvP_5H00XMK_Ignqn0K9uAu_myTqnfK_uhnqn0KbmvPb5fKBuA-b5fKEm1Yk0AFY5H00ULfqnfKETMKY5HDWnanLc1DWrHnvP1c1nj6Wrj0snan3nj0sQW0snj0snankc10WnanV0Z7xIWYdna3sn7tsQW0sg108njKxna3snNtsQW0kg108nj00ug9Y5H00mMPxTZFEuA-b5H00mLFW5Hmdn164&word=%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE","width":1140,"iwidth":1140,"height":640,"iheight":640,"fromPageTitle":"2020\u5168\u65b0\u84dd\u8272\u80cc\u666f\u56fe_\u6d77\u91cf\u7d20\u6750\u514d\u8d39\u4e0b\u8f7d_..","fromPageAbs":"\u7cbe\u54c1\u84dd\u8272\u80cc\u666f\u56fe\u514d\u8d39\u4e0b\u8f7d,\u63d0\u4f9b\u6d77\u91cf\u7d20\u6750,\u56fe\u7247\u4e0b\u8f7d,\u8bbe\u8ba1\u7d20\u6750,\u77e2..","base64":"","adNativeUrl":"","adTag":"","adFlag":0,"adShortSummary":"","adStylesReserve":"","adSellPointTag":""}],"fcMidData":[],"fcBtData":[],"fcType":"2","adType":1,"fcAdDatasLen":"1"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('shootBannerData', window.shootBannerData);
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["少女心韩系壁纸", "%C9%D9%C5%AE%D0%C4%BA%AB%CF%B5%B1%DA%D6%BD", "0", "0"],["原宿背景图", "%D4%AD%CB%DE%B1%B3%BE%B0%CD%BC", "0", "0"],["车背景图", "%B3%B5%B1%B3%BE%B0%CD%BC", "0", "0"],["纯色背景图无字", "%B4%BF%C9%AB%B1%B3%BE%B0%CD%BC%CE%DE%D7%D6", "0", "0"],["纯色背景图", "%B4%BF%C9%AB%B1%B3%BE%B0%CD%BC", "0", "0"],["背景图片淡雅", "%B1%B3%BE%B0%CD%BC%C6%AC%B5%AD%D1%C5", "0", "0"],["背景图粉色系少女心", "%B1%B3%BE%B0%CD%BC%B7%DB%C9%AB%CF%B5%C9%D9%C5%AE%D0%C4", "0", "0"],["背景图片风景", "%B1%B3%BE%B0%CD%BC%C6%AC%B7%E7%BE%B0", "0", "0"],["ins云朵背景图", "ins%D4%C6%B6%E4%B1%B3%BE%B0%CD%BC", "0", "0"],["大气背景图片", "%B4%F3%C6%F8%B1%B3%BE%B0%CD%BC%C6%AC", "0", "0"],["简约纯色背景", "%BC%F2%D4%BC%B4%BF%C9%AB%B1%B3%BE%B0", "0", "0"],["科学背景图", "%BF%C6%D1%A7%B1%B3%BE%B0%CD%BC", "0", "0"],["蓝色手机壁纸高清", "%C0%B6%C9%AB%CA%D6%BB%FA%B1%DA%D6%BD%B8%DF%C7%E5", "0", "0"],["超仙背景图天空", "%B3%AC%CF%C9%B1%B3%BE%B0%CD%BC%CC%EC%BF%D5", "0", "0"],["深蓝色背景", "%C9%EE%C0%B6%C9%AB%B1%B3%BE%B0", "0", "0"],["蓝色建筑", "%C0%B6%C9%AB%BD%A8%D6%FE", "0", "0"],["深蓝色全屏背景图", "%C9%EE%C0%B6%C9%AB%C8%AB%C6%C1%B1%B3%BE%B0%CD%BC", "0", "0"],["蓝底图片纯色", "%C0%B6%B5%D7%CD%BC%C6%AC%B4%BF%C9%AB", "0", "0"],["天蓝色手机壁纸", "%CC%EC%C0%B6%C9%AB%CA%D6%BB%FA%B1%DA%D6%BD", "0", "0"],["纯蓝色高清图片", "%B4%BF%C0%B6%C9%AB%B8%DF%C7%E5%CD%BC%C6%AC", "0", "0"],["蓝色搭配", "%C0%B6%C9%AB%B4%EE%C5%E4", "0", "0"],["医生背景图片高清", "%D2%BD%C9%FA%B1%B3%BE%B0%CD%BC%C6%AC%B8%DF%C7%E5", "0", "0"],["海蓝色纯色", "%BA%A3%C0%B6%C9%AB%B4%BF%C9%AB", "0", "0"],["背景图 科技", "%B1%B3%BE%B0%CD%BC%20%BF%C6%BC%BC", "0", "0"],["黑色唯美背景图片", "%BA%DA%C9%AB%CE%A8%C3%C0%B1%B3%BE%B0%CD%BC%C6%AC", "0", "0"],["烟花背景图片", "%D1%CC%BB%A8%B1%B3%BE%B0%CD%BC%C6%AC", "0", "0"],["黑色背景图", "%BA%DA%C9%AB%B1%B3%BE%B0%CD%BC", "0", "0"],["微信头像蓝色", "%CE%A2%D0%C5%CD%B7%CF%F1%C0%B6%C9%AB", "0", "0"],["蓝色绿色背景图", "%C0%B6%C9%AB%C2%CC%C9%AB%B1%B3%BE%B0%CD%BC", "0", "0"],["医生背景图片", "%D2%BD%C9%FA%B1%B3%BE%B0%CD%BC%C6%AC", "0", "0"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+
+    
+    
+    app.init();
+    app.run();
+});
+}();
+!function(){    window.tn = 'result';
+    window.vsid = '8d86f19964d4118bb09489cedc41c66b77d0a935';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/topRs/topRs"],function(topRsClass){
+        var topRs = new topRsClass();
+        var changeFilter = false;
+                    changeFilter = true;
+                topRs.init({
+            changeFilter: changeFilter
+        });
+    })
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord","common:widget/ui/utils/utils"],function( $, utils, HistoryRecord, commonUtils){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var ajaxURL = 'https://graph.baidu.com/upload?image=' + encodeURIComponent(keyword) + '&range=imagePage&tn=pc&from=pc&image_source=PC_UPLOAD_IMAGE_ICONURL&extUiData%5bisLogoShow%5d=1';
+var isIE6789 = $.browser.msie && ($.browser.version <= 9);
+
+        if (tiaoma && !isIE6789) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+            $.ajax({
+                url: ajaxURL,
+                type: 'post',
+                success: function (response) {
+                    if (response.status === 0) {
+                        location.href = response.data.url;
+                    } else if (response.status === 1002) {
+                        alert('未找到该图片的详细信息，请上传其他图片');
+                    } else {
+                        alert('出错了！（规则未定）');
+                    }
+                },
+                error: function () {
+                    alert('网络问题，请稍候再试！');
+                }
+            });
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        
+        form.pv.value = "";
+        form.action = "/search/index";
+
+        // 新筛选，及未命中阿凡达筛选时，重新检索时需要记录筛选
+                    form.z.value = commonUtils.getQueryValue('z');
+            form.ic.value = commonUtils.getQueryValue('ic');
+            form.lm.value = commonUtils.getQueryValue('lm');
+            form.hd.value = commonUtils.getQueryValue('hd');
+            form.latest.value = commonUtils.getQueryValue('latest');
+            form.copyright.value = commonUtils.getQueryValue('copyright');
+            form.width.value = commonUtils.getQueryValue('width');
+            form.height.value = commonUtils.getQueryValue('height');
+        
+        if (window.canUseHttps) {
+            form.action = 'https://' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/imgShowOpt/imgShowOpt"],function(imgShowOptClass){
+        var imgShowOpt= new imgShowOptClass();
+        imgShowOpt.init();
+    })
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        feedback.init(callbacks);
+    });
+}();
+!function(){    
+        
+    require.async(['searchresult:widget/ui/utils/utils'], function(utils){
+        try {
+            utils.reportHttpsStatus();
+        } catch(e) {}
+    });
+}();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=11881925733721852038&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result.page&fr=" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = '';
+    var chenjin = '';
+    var urlword = '%E8%93%9D%E8%89%B2%E8%83%8C%E6%99%AF%E5%9B%BE';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: 'f6a179b8ad34a911a67f14fa34b81a1c86c9269e',
+                cs: '',
+                word: '蓝色背景图'
+            });
+        });
+    }();</script>   </html> 
