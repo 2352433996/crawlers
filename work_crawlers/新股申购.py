@@ -25,7 +25,7 @@ class shares():
             'sr': '-1',
             'p': page,
             'ps': '50',
-            # 'js': 'var yEKATrXe={"pages":(tp),"data":(x)}', 控制返回格式
+            # 'js': 'var yEKATrXe={"pages":(tp),"data":(x)}'  控制返回格式
             'js': 'var yEKATrXe={pages:(tp),data:(x)}',
             'rt': '52794637'
         }
